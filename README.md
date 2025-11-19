@@ -1,4 +1,4 @@
-# explain_strace.py
+# explain-strace
 
 Parse and explain strace output with human-readable descriptions.
 
@@ -9,50 +9,68 @@ Parse and explain strace output with human-readable descriptions.
 - Multiple verbosity levels for detailed information
 - Summary statistics of all system calls
 - Graceful Ctrl-C handling when reading from stdin
+- Filter by system call categories (filesystem, network, memory, etc.)
+
+## Installation
+
+### From PyPI (when published)
+
+```bash
+pip install explain-strace
+```
+
+### From source
+
+```bash
+git clone https://github.com/bjdean/explain-strace.git
+cd explain-strace
+pip install -e .
+```
+
+### For development
+
+```bash
+git clone https://github.com/bjdean/explain-strace.git
+cd explain-strace
+pip install -e ".[dev]"
+```
 
 ## Usage
 
 ### Basic usage (from stdin)
 ```bash
-strace ls /tmp 2>&1 | python3 explain_strace.py
+strace ls /tmp 2>&1 | explain-strace
 ```
 
 ### Read from file
 ```bash
 strace ls /tmp 2>&1 > output.txt
-python3 explain_strace.py output.txt
+explain-strace output.txt
 ```
 
 ### Verbose mode (documentation links)
 ```bash
-strace ls 2>&1 | python3 explain_strace.py -v
+strace ls 2>&1 | explain-strace -v
 ```
 
-### More verbose (parameter descriptions)
+### Filter by category
 ```bash
-strace ls 2>&1 | python3 explain_strace.py -vv
-```
-
-### Maximum verbosity (original strace line)
-```bash
-strace ls 2>&1 | python3 explain_strace.py -vvv
+strace ls 2>&1 | explain-strace --filter filesystem
 ```
 
 ### Interrupt stdin reading
 When reading from stdin, press Ctrl-C to stop reading and display the summary:
 ```bash
-strace -p 1234 2>&1 | python3 explain_strace.py
+strace -p 1234 2>&1 | explain-strace
 # Press Ctrl-C to stop and see summary
 ```
 
 ## Verbosity Levels
 
-| Level | Flag    | Output |
-|-------|---------|--------|
-| 0     | (none)  | System call name, description, and return value |
-| 1     | `-v`    | + Link to man page documentation |
-| 2     | `-vv`   | + Parameter descriptions |
-| 3     | `-vvv`  | + Original strace line |
+| Level | Flag | Output |
+|-------|------|--------|
+| 0     | (none) | System call name, description, and return value |
+| 1     | `-v` | + Link to man page documentation |
 
 ## Output Format
 
@@ -63,11 +81,10 @@ read                 - Read from a file descriptor [returned: 832]
 close                - Close a file descriptor [returned: 0]
 ```
 
-### Verbose output (-vv)
+### Verbose output (-v)
 ```
 openat               - Open file relative to directory [returned: 3]
   Documentation: https://man7.org/linux/man-pages/man2/openat.2.html
-  Parameters: AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC
 ```
 
 ### Summary
@@ -90,25 +107,30 @@ Total: 20 calls across 4 unique system calls
 ### Debug a program
 ```bash
 strace -o trace.txt ./myprogram
-python3 explain_strace.py trace.txt
+explain-strace trace.txt
 ```
 
 ### Monitor a running process
 ```bash
 # In one terminal
-strace -p 1234 2>&1 | python3 explain_strace.py -v
+strace -p 1234 2>&1 | explain-strace -v
 
 # Press Ctrl-C when done
 ```
 
 ### Filter specific syscalls
 ```bash
-strace -e trace=open,openat,read,write ls 2>&1 | python3 explain_strace.py
+strace -e trace=open,openat,read,write ls 2>&1 | explain-strace
+```
+
+### List available categories
+```bash
+explain-strace --catlist
 ```
 
 ## Requirements
 
-- Python 3.6+
+- Python 3.8+
 - No external dependencies
 
 ## Implementation Details
@@ -120,6 +142,38 @@ The script includes descriptions for 300+ Linux system calls and handles:
 - Timestamps and PIDs in strace output
 - Signal interruption (Ctrl-C)
 
+## Development
+
+### Running tests
+
+```bash
+make test
+```
+
+### Running tests with coverage
+
+```bash
+make test-cov
+```
+
+### Linting
+
+```bash
+make lint
+```
+
+### Formatting
+
+```bash
+make format
+```
+
+### Running all checks
+
+```bash
+make check
+```
+
 ## License
 
-This tool is provided as-is for educational and debugging purposes.
+MIT License - see [LICENSE](LICENSE) file for details.
