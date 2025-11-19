@@ -394,6 +394,223 @@ SYSCALL_DESCRIPTIONS = {
     'mount_setattr': 'Change mount attributes',
 }
 
+# System call categories
+SYSCALL_CATEGORIES = {
+    # File operations
+    'open': 'filesystem', 'openat': 'filesystem', 'close': 'filesystem',
+    'read': 'filesystem', 'write': 'filesystem', 'creat': 'filesystem',
+    'lseek': 'filesystem', 'pread64': 'filesystem', 'pwrite64': 'filesystem',
+    'readv': 'filesystem', 'writev': 'filesystem', 'preadv': 'filesystem',
+    'pwritev': 'filesystem', 'preadv2': 'filesystem', 'pwritev2': 'filesystem',
+    'dup': 'filesystem', 'dup2': 'filesystem', 'dup3': 'filesystem',
+    'fcntl': 'filesystem', 'flock': 'filesystem', 'fsync': 'filesystem',
+    'fdatasync': 'filesystem', 'sync': 'filesystem', 'syncfs': 'filesystem',
+    'truncate': 'filesystem', 'ftruncate': 'filesystem',
+    'sendfile': 'filesystem', 'splice': 'filesystem', 'tee': 'filesystem',
+    'vmsplice': 'filesystem', 'copy_file_range': 'filesystem',
+    'fallocate': 'filesystem', 'sync_file_range': 'filesystem',
+    'readahead': 'filesystem', 'fadvise64': 'filesystem',
+
+    # File metadata
+    'stat': 'filesystem', 'fstat': 'filesystem', 'lstat': 'filesystem',
+    'newfstatat': 'filesystem', 'statx': 'filesystem',
+    'statfs': 'filesystem', 'fstatfs': 'filesystem', 'ustat': 'filesystem',
+    'access': 'filesystem', 'faccessat': 'filesystem', 'faccessat2': 'filesystem',
+    'chmod': 'filesystem', 'fchmod': 'filesystem', 'fchmodat': 'filesystem',
+    'chown': 'filesystem', 'fchown': 'filesystem', 'lchown': 'filesystem',
+    'fchownat': 'filesystem', 'umask': 'filesystem',
+    'utime': 'filesystem', 'utimes': 'filesystem', 'utimensat': 'filesystem',
+    'futimesat': 'filesystem',
+
+    # Directory operations
+    'getcwd': 'filesystem', 'chdir': 'filesystem', 'fchdir': 'filesystem',
+    'mkdir': 'filesystem', 'mkdirat': 'filesystem', 'rmdir': 'filesystem',
+    'getdents': 'filesystem', 'getdents64': 'filesystem',
+    'rename': 'filesystem', 'renameat': 'filesystem', 'renameat2': 'filesystem',
+    'link': 'filesystem', 'linkat': 'filesystem',
+    'unlink': 'filesystem', 'unlinkat': 'filesystem',
+    'symlink': 'filesystem', 'symlinkat': 'filesystem',
+    'readlink': 'filesystem', 'readlinkat': 'filesystem',
+    'mknod': 'filesystem', 'mknodat': 'filesystem',
+
+    # Extended attributes
+    'setxattr': 'filesystem', 'lsetxattr': 'filesystem', 'fsetxattr': 'filesystem',
+    'getxattr': 'filesystem', 'lgetxattr': 'filesystem', 'fgetxattr': 'filesystem',
+    'listxattr': 'filesystem', 'llistxattr': 'filesystem', 'flistxattr': 'filesystem',
+    'removexattr': 'filesystem', 'lremovexattr': 'filesystem', 'fremovexattr': 'filesystem',
+
+    # Mount operations
+    'mount': 'filesystem', 'umount2': 'filesystem', 'pivot_root': 'filesystem',
+    'chroot': 'filesystem', 'swapon': 'filesystem', 'swapoff': 'filesystem',
+    'open_tree': 'filesystem', 'move_mount': 'filesystem',
+    'fsopen': 'filesystem', 'fsconfig': 'filesystem', 'fsmount': 'filesystem',
+    'fspick': 'filesystem', 'mount_setattr': 'filesystem',
+
+    # Filesystem monitoring
+    'inotify_init': 'filesystem', 'inotify_init1': 'filesystem',
+    'inotify_add_watch': 'filesystem', 'inotify_rm_watch': 'filesystem',
+    'fanotify_init': 'filesystem', 'fanotify_mark': 'filesystem',
+
+    # Network operations
+    'socket': 'network', 'connect': 'network', 'accept': 'network',
+    'accept4': 'network', 'bind': 'network', 'listen': 'network',
+    'sendto': 'network', 'recvfrom': 'network', 'sendmsg': 'network',
+    'recvmsg': 'network', 'sendmmsg': 'network', 'recvmmsg': 'network',
+    'shutdown': 'network', 'getsockname': 'network', 'getpeername': 'network',
+    'socketpair': 'network', 'setsockopt': 'network', 'getsockopt': 'network',
+
+    # Memory management
+    'mmap': 'memory', 'munmap': 'memory', 'mremap': 'memory',
+    'mprotect': 'memory', 'msync': 'memory', 'madvise': 'memory',
+    'mlock': 'memory', 'munlock': 'memory', 'mlockall': 'memory',
+    'munlockall': 'memory', 'mlock2': 'memory', 'mincore': 'memory',
+    'brk': 'memory', 'sbrk': 'memory', 'remap_file_pages': 'memory',
+    'mbind': 'memory', 'set_mempolicy': 'memory', 'get_mempolicy': 'memory',
+    'migrate_pages': 'memory', 'move_pages': 'memory',
+    'membarrier': 'memory', 'userfaultfd': 'memory',
+    'pkey_mprotect': 'memory', 'pkey_alloc': 'memory', 'pkey_free': 'memory',
+    'memfd_create': 'memory', 'process_madvise': 'memory',
+
+    # Process management
+    'fork': 'process', 'vfork': 'process', 'clone': 'process', 'clone3': 'process',
+    'execve': 'process', 'execveat': 'process', 'exit': 'process',
+    'exit_group': 'process', 'wait4': 'process', 'waitid': 'process',
+    'getpid': 'process', 'getppid': 'process', 'gettid': 'process',
+    'getpgid': 'process', 'setpgid': 'process', 'getpgrp': 'process',
+    'setsid': 'process', 'getsid': 'process',
+    'prctl': 'process', 'arch_prctl': 'process',
+    'set_tid_address': 'process', 'unshare': 'process', 'setns': 'process',
+    'pidfd_open': 'process', 'pidfd_getfd': 'process', 'pidfd_send_signal': 'process',
+    'process_vm_readv': 'process', 'process_vm_writev': 'process',
+    'kcmp': 'process', 'ptrace': 'process',
+
+    # Signals
+    'kill': 'signal', 'tkill': 'signal', 'tgkill': 'signal',
+    'rt_sigaction': 'signal', 'rt_sigprocmask': 'signal', 'rt_sigreturn': 'signal',
+    'rt_sigpending': 'signal', 'rt_sigtimedwait': 'signal',
+    'rt_sigqueueinfo': 'signal', 'rt_tgsigqueueinfo': 'signal',
+    'rt_sigsuspend': 'signal', 'sigaltstack': 'signal',
+    'signalfd': 'signal', 'signalfd4': 'signal', 'pause': 'signal',
+
+    # Scheduling
+    'sched_yield': 'scheduling', 'sched_setparam': 'scheduling',
+    'sched_getparam': 'scheduling', 'sched_setscheduler': 'scheduling',
+    'sched_getscheduler': 'scheduling', 'sched_get_priority_max': 'scheduling',
+    'sched_get_priority_min': 'scheduling', 'sched_rr_get_interval': 'scheduling',
+    'sched_setaffinity': 'scheduling', 'sched_getaffinity': 'scheduling',
+    'sched_setattr': 'scheduling', 'sched_getattr': 'scheduling',
+
+    # Time
+    'time': 'time', 'gettimeofday': 'time', 'settimeofday': 'time',
+    'clock_gettime': 'time', 'clock_settime': 'time', 'clock_getres': 'time',
+    'clock_nanosleep': 'time', 'clock_adjtime': 'time', 'adjtimex': 'time',
+    'nanosleep': 'time', 'alarm': 'time',
+    'getitimer': 'time', 'setitimer': 'time',
+    'timer_create': 'time', 'timer_settime': 'time', 'timer_gettime': 'time',
+    'timer_getoverrun': 'time', 'timer_delete': 'time',
+    'timerfd_create': 'time', 'timerfd_settime': 'time', 'timerfd_gettime': 'time',
+    'times': 'time',
+
+    # I/O multiplexing
+    'select': 'ipc', 'pselect6': 'ipc', 'poll': 'ipc', 'ppoll': 'ipc',
+    'epoll_create': 'ipc', 'epoll_create1': 'ipc', 'epoll_ctl': 'ipc',
+    'epoll_wait': 'ipc', 'epoll_pwait': 'ipc', 'epoll_pwait2': 'ipc',
+    'eventfd': 'ipc', 'eventfd2': 'ipc',
+
+    # IPC
+    'pipe': 'ipc', 'pipe2': 'ipc',
+    'shmget': 'ipc', 'shmat': 'ipc', 'shmdt': 'ipc', 'shmctl': 'ipc',
+    'semget': 'ipc', 'semop': 'ipc', 'semctl': 'ipc', 'semtimedop': 'ipc',
+    'msgget': 'ipc', 'msgsnd': 'ipc', 'msgrcv': 'ipc', 'msgctl': 'ipc',
+    'mq_open': 'ipc', 'mq_unlink': 'ipc', 'mq_timedsend': 'ipc',
+    'mq_timedreceive': 'ipc', 'mq_notify': 'ipc', 'mq_getsetattr': 'ipc',
+
+    # User/Group IDs
+    'getuid': 'security', 'setuid': 'security', 'geteuid': 'security',
+    'setreuid': 'security', 'setresuid': 'security', 'getresuid': 'security',
+    'setfsuid': 'security',
+    'getgid': 'security', 'setgid': 'security', 'getegid': 'security',
+    'setregid': 'security', 'setresgid': 'security', 'getresgid': 'security',
+    'setfsgid': 'security',
+    'getgroups': 'security', 'setgroups': 'security',
+    'capget': 'security', 'capset': 'security',
+    'seccomp': 'security',
+
+    # System info
+    'uname': 'system', 'sysinfo': 'system', 'syslog': 'system',
+    'getrlimit': 'system', 'setrlimit': 'system', 'prlimit64': 'system',
+    'getrusage': 'system', 'sysfs': 'system', 'getcpu': 'system',
+    'getrandom': 'system', '_sysctl': 'system',
+
+    # Priority
+    'getpriority': 'scheduling', 'setpriority': 'scheduling',
+    'ioprio_get': 'scheduling', 'ioprio_set': 'scheduling',
+
+    # Device control
+    'ioctl': 'device', 'iopl': 'device', 'ioperm': 'device',
+
+    # Async I/O
+    'io_setup': 'async_io', 'io_destroy': 'async_io',
+    'io_getevents': 'async_io', 'io_submit': 'async_io',
+    'io_cancel': 'async_io', 'io_pgetevents': 'async_io',
+    'io_uring_setup': 'async_io', 'io_uring_enter': 'async_io',
+    'io_uring_register': 'async_io',
+
+    # Futex
+    'futex': 'ipc', 'set_robust_list': 'ipc', 'get_robust_list': 'ipc',
+
+    # Module management
+    'init_module': 'system', 'delete_module': 'system', 'finit_module': 'system',
+
+    # Quota
+    'quotactl': 'filesystem',
+
+    # Keyrings
+    'add_key': 'security', 'request_key': 'security', 'keyctl': 'security',
+
+    # Hostname
+    'sethostname': 'system', 'setdomainname': 'system',
+
+    # Reboot
+    'reboot': 'system',
+
+    # Accounting
+    'acct': 'system',
+
+    # Thread local storage
+    'set_thread_area': 'process', 'get_thread_area': 'process',
+
+    # Performance monitoring
+    'perf_event_open': 'system',
+
+    # BPF
+    'bpf': 'system',
+
+    # Restart
+    'restart_syscall': 'system',
+
+    # Kexec
+    'kexec_load': 'system', 'kexec_file_load': 'system',
+
+    # Personality
+    'personality': 'process',
+
+    # Vhangup
+    'vhangup': 'system',
+
+    # Name/handle
+    'name_to_handle_at': 'filesystem', 'open_by_handle_at': 'filesystem',
+
+    # Rseq
+    'rseq': 'process',
+
+    # Close range
+    'close_range': 'filesystem',
+
+    # Openat2
+    'openat2': 'filesystem',
+}
+
 # Documentation base URLs
 MANPAGE_BASE = "https://man7.org/linux/man-pages/man2"
 
@@ -401,9 +618,11 @@ MANPAGE_BASE = "https://man7.org/linux/man-pages/man2"
 class StraceExplainer:
     """Parse and explain strace output."""
 
-    def __init__(self, verbosity: int = 0):
+    def __init__(self, verbosity: int = 0, filter_category: Optional[str] = None):
         self.verbosity = verbosity
+        self.filter_category = filter_category
         self.syscall_counts: Counter = Counter()
+        self.category_counts: Counter = Counter()
         self.interrupted = False
 
         # Regex to match strace lines
@@ -460,6 +679,10 @@ class StraceExplainer:
         """Get one-line description of syscall."""
         return SYSCALL_DESCRIPTIONS.get(syscall, "Unknown system call")
 
+    def get_syscall_category(self, syscall: str) -> str:
+        """Get category of syscall."""
+        return SYSCALL_CATEGORIES.get(syscall, "unknown")
+
     def get_manpage_url(self, syscall: str) -> str:
         """Get URL to man page for syscall."""
         return f"{MANPAGE_BASE}/{syscall}.2.html"
@@ -501,31 +724,37 @@ class StraceExplainer:
             return
 
         syscall, full_line, result = parsed
+
+        # Get category
+        category = self.get_syscall_category(syscall)
+
+        # Check filter if enabled
+        if self.filter_category:
+            if category != self.filter_category:
+                return
+
+        # Track counts
         self.syscall_counts[syscall] += 1
+        self.category_counts[category] += 1
 
-        # Basic output: syscall and description
+        # Always print the original line first
+        print(full_line)
+
+        # Add category
+        print(f" - Category: {category}")
+
+        # Add description with "Description:" prefix
         description = self.get_syscall_description(syscall)
-        output = f"{syscall:20s} - {description}"
+        print(f" - Description: {description}")
 
-        # Add result if available
+        # Add result on its own line if available
         if result:
-            output += f" [returned: {result}]"
-
-        print(output)
+            print(f" - Returned: {result}")
 
         # Verbose mode: add documentation link
         if self.verbosity >= 1:
             manpage_url = self.get_manpage_url(syscall)
-            print(f"  Documentation: {manpage_url}")
-
-        # More verbose: add parameter explanation
-        if self.verbosity >= 2:
-            param_desc = self.explain_parameters(full_line, syscall)
-            print(f"  {param_desc}")
-
-        # Even more verbose: show original line
-        if self.verbosity >= 3:
-            print(f"  Original: {full_line}")
+            print(f" - Documentation: {manpage_url}")
 
     def print_summary(self) -> None:
         """Print summary of system calls seen."""
@@ -558,6 +787,32 @@ class StraceExplainer:
         unique = len(self.syscall_counts)
         print("-" * 70)
         print(f"Total: {total} calls across {unique} unique system calls")
+
+        # Print category summary
+        if self.category_counts:
+            print("\n" + "="*70)
+            print("SUMMARY BY CATEGORY")
+            print("="*70)
+
+            # Sort by count (descending) then by name
+            sorted_categories = sorted(
+                self.category_counts.items(),
+                key=lambda x: (-x[1], x[0])
+            )
+
+            # Calculate column widths
+            max_cat_len = max(len(cat) for cat, _ in sorted_categories)
+            max_count_len = max(len(str(count)) for _, count in sorted_categories)
+
+            print(f"{'Category':<{max_cat_len}}  {'Count':>{max_count_len}}")
+            print("-" * 70)
+
+            for category, count in sorted_categories:
+                print(f"{category:<{max_cat_len}}  {count:>{max_count_len}}")
+
+            print("-" * 70)
+            total_categories = len(self.category_counts)
+            print(f"Total: {total} calls across {total_categories} categories")
 
     def process_file(self, filepath: str) -> None:
         """Process strace output from a file."""
@@ -592,13 +847,25 @@ class StraceExplainer:
                 sys.exit(1)
 
 
+def get_all_categories():
+    """Get sorted list of unique categories."""
+    return sorted(set(SYSCALL_CATEGORIES.values()))
+
+
 def main():
+    # Get categories for help text
+    categories = get_all_categories()
+    category_list = ', '.join(categories)
+
     parser = argparse.ArgumentParser(
         description='Explain strace output with human-readable descriptions.',
-        epilog='Examples:\n'
+        epilog=f'Available categories: {category_list}\n\n'
+               'Examples:\n'
                '  strace ls 2>&1 | explain_strace.py\n'
                '  explain_strace.py strace_output.txt\n'
-               '  explain_strace.py -vv strace_output.txt',
+               '  explain_strace.py -vv strace_output.txt\n'
+               '  explain_strace.py --filter filesystem strace_output.txt\n'
+               '\n',
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
 
@@ -615,9 +882,27 @@ def main():
         help='Increase verbosity (can be used multiple times: -v, -vv, -vvv)'
     )
 
+    parser.add_argument(
+        '--filter',
+        metavar='CATEGORY',
+        help=f'Filter syscalls by category.'
+    )
+
+    parser.add_argument(
+        '--catlist',
+        action='store_true',
+        help='List all available categories (one per line) and exit'
+    )
+
     args = parser.parse_args()
 
-    explainer = StraceExplainer(verbosity=args.verbose)
+    # Handle --catlist
+    if args.catlist:
+        for category in categories:
+            print(category)
+        sys.exit(0)
+
+    explainer = StraceExplainer(verbosity=args.verbose, filter_category=args.filter)
 
     if args.file:
         explainer.process_file(args.file)
