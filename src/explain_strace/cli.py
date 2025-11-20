@@ -1090,6 +1090,14 @@ class StraceExplainer:
 
 def get_all_categories():
     """Get sorted list of unique categories."""
+    if _SYSCALLS_DATA and "syscalls" in _SYSCALLS_DATA:
+        # Extract categories from JSON data
+        categories = set()
+        for syscall_info in _SYSCALLS_DATA["syscalls"].values():
+            if "category" in syscall_info:
+                categories.add(syscall_info["category"])
+        return sorted(categories)
+    # Fallback to hard-coded categories
     return sorted(set(SYSCALL_CATEGORIES.values()))
 
 
