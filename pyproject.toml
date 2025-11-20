@@ -15,8 +15,8 @@ authors = [
 ]
 license = "MIT"
 
-# Requires Python 3.8+ for better type hints and modern syntax
-requires-python = ">=3.8"
+# Requires Python 3.9+ for current setuptools
+requires-python = ">=3.9"
 
 # PyPI classifiers help users find your package
 # See: https://pypi.org/classifiers/
@@ -26,7 +26,6 @@ classifiers = [
     "Intended Audience :: System Administrators",
     "Operating System :: POSIX :: Linux",  # strace is Linux-specific
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
