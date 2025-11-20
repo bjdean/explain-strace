@@ -8,6 +8,7 @@ help:
 	@echo "  make test-cov     - Run tests with coverage"
 	@echo "  make lint         - Run linters (ruff)"
 	@echo "  make format       - Format code (black, ruff)"
+	@echo "  make check        - Run all tests / linters / formatters"
 	@echo "  make clean        - Remove build artifacts"
 	@echo "  make build        - Build package"
 	@echo "  make publish      - Publish to PyPI (requires credentials)"
@@ -49,5 +50,5 @@ publish: build
 	python -m twine upload dist/*
 
 # Run all checks before committing
-check: lint test
+check: lint format test
 	@echo "All checks passed!"

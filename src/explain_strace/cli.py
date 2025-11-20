@@ -915,13 +915,23 @@ class StraceExplainer:
         # Calculate column widths
         max_name_len = max(len(name) for name, _ in sorted_calls)
         max_count_len = max(len(str(count)) for _, count in sorted_calls)
+        max_cat_len = max(
+            len(str(x)) for x in [self.get_syscall_category(syscall) for syscall, _ in sorted_calls]
+        )
 
-        print(f"{'System Call':<{max_name_len}}  {'Count':>{max_count_len}}  Description")
+        print(
+            f"{'System Call':<{max_name_len}}  {'Count':>{max_count_len}}  "
+            f"{'Category':<{max_cat_len}}  Description"
+        )
         print("-" * 70)
 
         for syscall, count in sorted_calls:
             desc = self.get_syscall_description(syscall)
-            print(f"{syscall:<{max_name_len}}  {count:>{max_count_len}}  {desc}")
+            cat = self.get_syscall_category(syscall)
+            print(
+                f"{syscall:<{max_name_len}}  {count:>{max_count_len}}  "
+                f"{cat:<{max_cat_len}}  {desc}"
+            )
 
         total = sum(self.syscall_counts.values())
         unique = len(self.syscall_counts)

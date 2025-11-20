@@ -117,30 +117,47 @@ At the end of processing, a summary is displayed showing all system calls and th
 ======================================================================
 SUMMARY OF SYSTEM CALLS
 ======================================================================
-System Call      Count  Description
+System Call      Count  Category    Description
 ----------------------------------------------------------------------
-mmap             12     Map files or devices into memory
-openat           8      Open file relative to a directory file descriptor
-close            8      Close a file descriptor
-read             6      Read from a file descriptor
-mprotect         4      Set protection on region of memory
-write            2      Write to a file descriptor
-brk              2      Change data segment size
-socket           1      Create endpoint for communication
-connect          1      Initiate connection on socket
+mmap             18  memory      Map files or devices into memory
+close             9  filesystem  Close a file descriptor
+fstat             8  filesystem  Get file status by file descriptor
+openat            7  filesystem  Open a file relative to a directory file descriptor
+mprotect          5  memory      Set protection on region of memory
+read              5  filesystem  Read from a file descriptor
+brk               3  memory      Change data segment size
+access            2  filesystem  Check user permissions for a file
+getdents64        2  filesystem  Get directory entries (64-bit)
+pread64           2  filesystem  Read from file descriptor at offset
+statfs            2  filesystem  Get filesystem statistics
+arch_prctl        1  process     Set architecture-specific thread state
+execve            1  process     Execute program
+exit_group        1  process     Terminate all threads in process
+getrandom         1  system      Get random bytes
+ioctl             1  device      Control device
+munmap            1  memory      Unmap files or devices from memory
+prlimit64         1  system      Get/set resource limits
+rseq              1  process     Register restartable sequence
+set_robust_list   1  ipc         Set robust futex list
+set_tid_address   1  process     Set pointer to thread ID
+write             1  filesystem  Write to a file descriptor
 ----------------------------------------------------------------------
-Total: 44 calls across 9 unique system calls
+Total: 74 calls across 22 unique system calls
 
 ======================================================================
 SUMMARY BY CATEGORY
 ======================================================================
-Category      Count
+Category    Count
 ----------------------------------------------------------------------
-memory        18
-filesystem    24
-network       2
+filesystem  38
+memory      27
+process      5
+system       2
+device       1
+ipc          1
 ----------------------------------------------------------------------
-Total: 44 calls across 3 categories
+Total: 74 calls across 6 categories
+
 ```
 
 ## Examples
