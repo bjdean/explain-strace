@@ -59,7 +59,7 @@ strace ls 2>&1 | explain-strace --filter filesystem
 ```
 
 ### Interrupt stdin reading
-When reading from stdin, press Ctrl-C to stop reading and display the summary:
+When reading from stdin, press Ctrl-C to stop reading and display the summary. For example to strace a running procesws with PID 1234:
 ```bash
 strace -p 1234 2>&1 | explain-strace
 # Press Ctrl-C to stop and see summary
