@@ -779,7 +779,8 @@ class StraceExplainer:
         )
 
         # Extract syscall name and result
-        self.result_pattern = re.compile(r"=\s*(-?\d+|0x[0-9a-fA-F]+|\?)")
+        # Note: hex pattern must come before decimal to match hex values correctly
+        self.result_pattern = re.compile(r"=\s*(0x[0-9a-fA-F]+|-?\d+|\?)")
 
     def setup_signal_handler(self):
         """Setup Ctrl-C handler for graceful interruption."""
@@ -834,6 +835,14 @@ class StraceExplainer:
         Extract and explain parameters from syscall line.
         Returns a formatted string explaining parameters.
         """
+        # Check for unfinished calls first (before looking for closing paren)
+        if "<unfinished" in line:
+            return "Call unfinished (continued in next line)"
+
+        # Check for resumed calls (they don't have opening paren)
+        if "resumed>" in line:
+            return "Call resumed from previous line"
+
         # Try to extract parameters from the line
         # This is a simplified version - full parameter parsing would be complex
         paren_start = line.find("(")
@@ -843,14 +852,6 @@ class StraceExplainer:
             return "Parameter description unavailable"
 
         params = line[paren_start + 1 : paren_end]
-
-        # For unfinished calls
-        if "<unfinished" in params:
-            return "Call unfinished (continued in next line)"
-
-        # For resumed calls
-        if params.startswith("..."):
-            return "Call resumed from previous line"
 
         # Truncate very long parameter lists
         if len(params) > 200:
