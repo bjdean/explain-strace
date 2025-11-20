@@ -64,6 +64,10 @@ explain-strace = "explain_strace.cli:main"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+# Include syscalls.json data file in the package
+[tool.setuptools.package-data]
+explain_strace = ["syscalls.json"]
+
 # Black - opinionated code formatter
 # Enforces consistent code style across the project
 [tool.black]

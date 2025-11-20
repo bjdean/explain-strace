@@ -220,6 +220,16 @@ The script includes descriptions for 300+ Linux system calls and handles:
 - Timestamps and PIDs in strace output
 - Signal interruption (Ctrl-C)
 
+### System Call Data Management
+
+System call data is managed through a JSON file (`src/explain_strace/syscalls.json`) that can be generated from Linux kernel source. This allows:
+- Easy updates when kernel adds/removes syscalls
+- Detection of new, removed, or obsolete syscalls
+- Warnings in verbose mode about syscall status
+- Tracking of syscall changes across kernel versions
+
+See [SYSCALLS.md](SYSCALLS.md) for detailed documentation on updating syscall data from kernel source.
+
 ## Development
 
 ### Running tests

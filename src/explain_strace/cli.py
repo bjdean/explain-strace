@@ -7,11 +7,51 @@ of each system call, with optional verbose modes for additional details.
 """
 
 import argparse
+import json
 import re
 import signal
 import sys
 from collections import Counter
-from typing import Optional, Tuple
+from pathlib import Path
+from typing import Dict, Optional, Tuple
+
+
+def load_syscalls_data() -> Dict:
+    """
+    Load syscalls from syscalls.json.
+
+    Returns a dictionary with structure:
+    {
+        'metadata': {...},
+        'syscalls': {
+            'syscall_name': {
+                'number': int,
+                'description': str,
+                'category': str,
+                'status': str
+            }
+        }
+    }
+
+    Falls back to hard-coded data if JSON file is not found.
+    """
+    # Try to find syscalls.json relative to this file
+    json_path = Path(__file__).parent / "syscalls.json"
+
+    if not json_path.exists():
+        # Fallback: use hard-coded data (defined below)
+        return None
+
+    try:
+        with open(json_path) as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"Warning: Could not load syscalls.json: {e}", file=sys.stderr)
+        return None
+
+
+# Load syscalls data from JSON (or None if not available)
+_SYSCALLS_DATA = load_syscalls_data()
 
 # System call descriptions
 SYSCALL_DESCRIPTIONS = {
@@ -824,11 +864,24 @@ class StraceExplainer:
 
     def get_syscall_description(self, syscall: str) -> str:
         """Get one-line description of syscall."""
+        if _SYSCALLS_DATA and syscall in _SYSCALLS_DATA.get("syscalls", {}):
+            return _SYSCALLS_DATA["syscalls"][syscall].get("description", "Unknown system call")
         return SYSCALL_DESCRIPTIONS.get(syscall, "Unknown system call")
 
     def get_syscall_category(self, syscall: str) -> str:
         """Get category of syscall."""
+        if _SYSCALLS_DATA and syscall in _SYSCALLS_DATA.get("syscalls", {}):
+            return _SYSCALLS_DATA["syscalls"][syscall].get("category", "unknown")
         return SYSCALL_CATEGORIES.get(syscall, "unknown")
+
+    def get_syscall_status(self, syscall: str) -> Optional[str]:
+        """
+        Get status of syscall (active, new, removed, obsolete).
+        Returns None if using hard-coded data.
+        """
+        if _SYSCALLS_DATA and syscall in _SYSCALLS_DATA.get("syscalls", {}):
+            return _SYSCALLS_DATA["syscalls"][syscall].get("status", "active")
+        return None
 
     def get_manpage_url(self, syscall: str) -> str:
         """Get URL to man page for syscall."""
@@ -907,10 +960,38 @@ class StraceExplainer:
         if result:
             print(f" - Returned: {result}")
 
-        # Verbose mode: add documentation link
+        # Verbose mode: add documentation link and status warnings
         if self.verbosity >= 1:
             manpage_url = self.get_manpage_url(syscall)
             print(f" - Documentation: {manpage_url}")
+
+            # Show syscall status if available
+            status = self.get_syscall_status(syscall)
+            if status and status != "active":
+                if status == "new":
+                    kernel_version = (
+                        _SYSCALLS_DATA.get("syscalls", {})
+                        .get(syscall, {})
+                        .get("first_seen_version")
+                    )
+                    version_info = f" (since kernel {kernel_version})" if kernel_version else ""
+                    print(f" - ⚠️  Status: NEW syscall{version_info}")
+                elif status == "removed":
+                    kernel_version = (
+                        _SYSCALLS_DATA.get("syscalls", {})
+                        .get(syscall, {})
+                        .get("removed_version")
+                    )
+                    version_info = f" (removed in kernel {kernel_version})" if kernel_version else ""
+                    print(f" - ⚠️  Status: REMOVED syscall{version_info}")
+                elif status == "obsolete":
+                    kernel_version = (
+                        _SYSCALLS_DATA.get("syscalls", {})
+                        .get(syscall, {})
+                        .get("obsolete_since")
+                    )
+                    version_info = f" (obsolete since kernel {kernel_version})" if kernel_version else ""
+                    print(f" - ⚠️  Status: OBSOLETE{version_info}")
 
     def print_summary(self) -> None:
         """Print summary of system calls seen."""
