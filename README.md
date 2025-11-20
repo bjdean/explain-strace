@@ -112,18 +112,28 @@ openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
 ```
 
 ### Summary
+At the end of processing, a summary is displayed showing all system calls and their counts:
 ```
 ======================================================================
 SUMMARY OF SYSTEM CALLS
 ======================================================================
 System Call  Count  Description
 ----------------------------------------------------------------------
-close   7  Close a file descriptor
-openat  7  Open file relative to directory
-read    5  Read from a file descriptor
-write   1  Write to a file descriptor
+close        7      Close a file descriptor
+openat       7      Open file relative to a directory file descriptor
+read         5      Read from a file descriptor
+write        1      Write to a file descriptor
 ----------------------------------------------------------------------
 Total: 20 calls across 4 unique system calls
+
+======================================================================
+SUMMARY BY CATEGORY
+======================================================================
+Category      Count
+----------------------------------------------------------------------
+filesystem    20
+----------------------------------------------------------------------
+Total: 20 calls across 1 categories
 ```
 
 ## Examples
