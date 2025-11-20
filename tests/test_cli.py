@@ -279,6 +279,34 @@ class TestCategories:
         # Check that categories are sorted
         assert categories == sorted(categories)
 
+    def test_get_all_categories_with_json_data(self):
+        """Test that get_all_categories uses JSON data when available."""
+        from explain_strace import cli
+
+        # If _SYSCALLS_DATA is loaded, it should include categories
+        # that are not in the hard-coded fallback
+        if cli._SYSCALLS_DATA:
+            categories = get_all_categories()
+            # "unimplemented" only exists in JSON data, not in hard-coded SYSCALL_CATEGORIES
+            assert "unimplemented" in categories
+
+    def test_get_all_categories_fallback(self, monkeypatch):
+        """Test that get_all_categories falls back to hard-coded data."""
+        from explain_strace import cli
+
+        # Mock _SYSCALLS_DATA to be None to test fallback
+        monkeypatch.setattr(cli, "_SYSCALLS_DATA", None)
+
+        categories = get_all_categories()
+        assert isinstance(categories, list)
+        assert len(categories) > 0
+        assert "filesystem" in categories
+        assert "network" in categories
+        # Should not include JSON-only categories when using fallback
+        assert "unimplemented" not in categories
+        # Check that categories are sorted
+        assert categories == sorted(categories)
+
 
 class TestCLI:
     """Tests for CLI argument parsing and main function."""
