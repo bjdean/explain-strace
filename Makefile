@@ -13,7 +13,7 @@ help:
 	@echo "  make publish      - Publish to PyPI (requires credentials)"
 
 install:
-	pip install -e .
+	pip install .
 
 install-dev:
 	pip install -e ".[dev]"
