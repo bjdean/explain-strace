@@ -759,12 +759,16 @@ MANPAGE_BASE = "https://man7.org/linux/man-pages/man2"
 class StraceExplainer:
     """Parse and explain strace output."""
 
-    def __init__(self, verbosity: int = 0, filter_category: Optional[str] = None):
+    def __init__(
+        self, verbosity: int = 0, filter_category: Optional[str] = None, once_mode: bool = False
+    ):
         self.verbosity = verbosity
         self.filter_category = filter_category
+        self.once_mode = once_mode
         self.syscall_counts: Counter = Counter()
         self.category_counts: Counter = Counter()
         self.interrupted = False
+        self.seen_syscalls: set = set()
 
         # Regex to match strace lines
         # Matches: syscall(args) = retval
@@ -880,8 +884,17 @@ class StraceExplainer:
         self.syscall_counts[syscall] += 1
         self.category_counts[category] += 1
 
+        # Check if we've seen this syscall before when in once mode
+        is_first_occurrence = syscall not in self.seen_syscalls
+        if self.once_mode:
+            self.seen_syscalls.add(syscall)
+
         # Always print the original line first
         print(full_line)
+
+        # If once mode is enabled and we've seen this syscall before, skip explanation
+        if self.once_mode and not is_first_occurrence:
+            return
 
         # Add category
         print(f" - Category: {category}")
@@ -1031,6 +1044,12 @@ def main():
     parser.add_argument("--filter", metavar="CATEGORY", help="Filter syscalls by category.")
 
     parser.add_argument(
+        "--once",
+        action="store_true",
+        help="Show detailed information only for the first occurrence of each syscall",
+    )
+
+    parser.add_argument(
         "--catlist",
         action="store_true",
         help="List all available categories (one per line) and exit",
@@ -1044,7 +1063,9 @@ def main():
             print(category)
         sys.exit(0)
 
-    explainer = StraceExplainer(verbosity=args.verbose, filter_category=args.filter)
+    explainer = StraceExplainer(
+        verbosity=args.verbose, filter_category=args.filter, once_mode=args.once
+    )
 
     if args.file:
         explainer.process_file(args.file)

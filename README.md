@@ -62,6 +62,13 @@ strace ls 2>&1 | explain-strace --filter filesystem
 strace wget http://example.com 2>&1 | explain-strace --filter network
 ```
 
+### Show details only once per syscall type
+When analyzing output with many repeated syscalls, use `--once` to see the full explanation only the first time each syscall appears:
+```bash
+# Show full details only for the first occurrence of each syscall
+strace ls 2>&1 | explain-strace --once
+```
+
 **Note:** You can also filter at the strace level using `-e trace=...`, but this loses information about other syscalls that may be important for debugging:
 ```bash
 # This only captures filesystem calls - you won't see network/memory operations
@@ -179,6 +186,12 @@ strace -p 1234 2>&1 | explain-strace -v
 ```bash
 # Capture everything, filter during analysis - preserves full context
 strace ./myprogram 2>&1 | explain-strace --filter filesystem
+```
+
+### Reduce output verbosity
+```bash
+# Only show detailed explanations for the first occurrence of each syscall type
+strace ./myprogram 2>&1 | explain-strace --once
 ```
 
 ### Reduce strace output size (use with caution)
