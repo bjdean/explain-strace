@@ -978,19 +978,19 @@ class StraceExplainer:
                     print(f" - ⚠️  Status: NEW syscall{version_info}")
                 elif status == "removed":
                     kernel_version = (
-                        _SYSCALLS_DATA.get("syscalls", {})
-                        .get(syscall, {})
-                        .get("removed_version")
+                        _SYSCALLS_DATA.get("syscalls", {}).get(syscall, {}).get("removed_version")
                     )
-                    version_info = f" (removed in kernel {kernel_version})" if kernel_version else ""
+                    version_info = (
+                        f" (removed in kernel {kernel_version})" if kernel_version else ""
+                    )
                     print(f" - ⚠️  Status: REMOVED syscall{version_info}")
                 elif status == "obsolete":
                     kernel_version = (
-                        _SYSCALLS_DATA.get("syscalls", {})
-                        .get(syscall, {})
-                        .get("obsolete_since")
+                        _SYSCALLS_DATA.get("syscalls", {}).get(syscall, {}).get("obsolete_since")
                     )
-                    version_info = f" (obsolete since kernel {kernel_version})" if kernel_version else ""
+                    version_info = (
+                        f" (obsolete since kernel {kernel_version})" if kernel_version else ""
+                    )
                     print(f" - ⚠️  Status: OBSOLETE{version_info}")
 
     def print_summary(self) -> None:

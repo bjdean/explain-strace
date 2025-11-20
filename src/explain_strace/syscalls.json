@@ -77,7 +77,7 @@
       "status": "active"
     },
     "afs_syscall": {
-      "category": "unknown",
+      "category": "unimplemented",
       "description": "AFS system call (unimplemented)",
       "number": 183,
       "status": "active"
@@ -113,11 +113,11 @@
       "status": "active"
     },
     "cachestat": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "filesystem",
+      "description": "Query page cache statistics of a file",
       "first_seen_version": "6.11.0",
       "number": 451,
-      "status": "new"
+      "status": "active"
     },
     "capget": {
       "category": "security",
@@ -228,7 +228,7 @@
       "status": "active"
     },
     "create_module": {
-      "category": "unknown",
+      "category": "system",
       "description": "Create loadable module (obsolete)",
       "number": 174,
       "status": "active"
@@ -276,7 +276,7 @@
       "status": "active"
     },
     "epoll_ctl_old": {
-      "category": "unknown",
+      "category": "ipc",
       "description": "Control epoll descriptor (old)",
       "number": 214,
       "status": "active"
@@ -300,7 +300,7 @@
       "status": "active"
     },
     "epoll_wait_old": {
-      "category": "unknown",
+      "category": "ipc",
       "description": "Wait for epoll events (old)",
       "number": 215,
       "status": "active"
@@ -396,11 +396,11 @@
       "status": "active"
     },
     "fchmodat2": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "filesystem",
+      "description": "Change permissions with extended flags",
       "first_seen_version": "6.11.0",
       "number": 452,
-      "status": "new"
+      "status": "active"
     },
     "fchown": {
       "category": "filesystem",
@@ -523,32 +523,32 @@
       "status": "active"
     },
     "futex_requeue": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "ipc",
+      "description": "Requeue waiters from one futex to another",
       "first_seen_version": "6.11.0",
       "number": 456,
-      "status": "new"
+      "status": "active"
     },
     "futex_wait": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "ipc",
+      "description": "Wait on a futex (futex2 interface)",
       "first_seen_version": "6.11.0",
       "number": 455,
-      "status": "new"
+      "status": "active"
     },
     "futex_waitv": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "ipc",
+      "description": "Wait on multiple futexes",
       "first_seen_version": "6.11.0",
       "number": 449,
-      "status": "new"
+      "status": "active"
     },
     "futex_wake": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "ipc",
+      "description": "Wake waiters on a futex (futex2 interface)",
       "first_seen_version": "6.11.0",
       "number": 454,
-      "status": "new"
+      "status": "active"
     },
     "futimesat": {
       "category": "filesystem",
@@ -557,7 +557,7 @@
       "status": "active"
     },
     "get_kernel_syms": {
-      "category": "unknown",
+      "category": "system",
       "description": "Get exported kernel symbols (obsolete)",
       "number": 177,
       "status": "active"
@@ -659,7 +659,7 @@
       "status": "active"
     },
     "getpmsg": {
-      "category": "unknown",
+      "category": "unimplemented",
       "description": "Get STREAMS message (unimplemented)",
       "number": 181,
       "status": "active"
@@ -893,25 +893,25 @@
       "status": "active"
     },
     "landlock_add_rule": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "security",
+      "description": "Add rule to Landlock ruleset",
       "first_seen_version": "6.11.0",
       "number": 445,
-      "status": "new"
+      "status": "active"
     },
     "landlock_create_ruleset": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "security",
+      "description": "Create Landlock ruleset",
       "first_seen_version": "6.11.0",
       "number": 444,
-      "status": "new"
+      "status": "active"
     },
     "landlock_restrict_self": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "security",
+      "description": "Apply Landlock ruleset to current process",
       "first_seen_version": "6.11.0",
       "number": 446,
-      "status": "new"
+      "status": "active"
     },
     "lchown": {
       "category": "filesystem",
@@ -944,11 +944,11 @@
       "status": "active"
     },
     "listmount": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "filesystem",
+      "description": "List child mounts by mount ID",
       "first_seen_version": "6.11.0",
       "number": 458,
-      "status": "new"
+      "status": "active"
     },
     "listxattr": {
       "category": "filesystem",
@@ -963,7 +963,7 @@
       "status": "active"
     },
     "lookup_dcookie": {
-      "category": "unknown",
+      "category": "filesystem",
       "description": "Get directory entry cookie",
       "number": 212,
       "status": "active"
@@ -987,25 +987,25 @@
       "status": "active"
     },
     "lsm_get_self_attr": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "security",
+      "description": "Get LSM attributes of current process",
       "first_seen_version": "6.11.0",
       "number": 459,
-      "status": "new"
+      "status": "active"
     },
     "lsm_list_modules": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "security",
+      "description": "List active LSM modules",
       "first_seen_version": "6.11.0",
       "number": 461,
-      "status": "new"
+      "status": "active"
     },
     "lsm_set_self_attr": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "security",
+      "description": "Set LSM attributes of current process",
       "first_seen_version": "6.11.0",
       "number": 460,
-      "status": "new"
+      "status": "active"
     },
     "lstat": {
       "category": "filesystem",
@@ -1020,11 +1020,11 @@
       "status": "active"
     },
     "map_shadow_stack": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "memory",
+      "description": "Map shadow stack for control-flow enforcement",
       "first_seen_version": "6.11.0",
       "number": 453,
-      "status": "new"
+      "status": "active"
     },
     "mbind": {
       "category": "memory",
@@ -1045,11 +1045,11 @@
       "status": "active"
     },
     "memfd_secret": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "memory",
+      "description": "Create secret memory file descriptor",
       "first_seen_version": "6.11.0",
       "number": 447,
-      "status": "new"
+      "status": "active"
     },
     "migrate_pages": {
       "category": "memory",
@@ -1112,7 +1112,7 @@
       "status": "active"
     },
     "modify_ldt": {
-      "category": "unknown",
+      "category": "process",
       "description": "Get/set thread local descriptor table",
       "number": 154,
       "status": "active"
@@ -1190,11 +1190,11 @@
       "status": "active"
     },
     "mseal": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "memory",
+      "description": "Seal memory mappings against modifications",
       "first_seen_version": "6.11.0",
       "number": 462,
-      "status": "new"
+      "status": "active"
     },
     "msgctl": {
       "category": "ipc",
@@ -1263,7 +1263,7 @@
       "status": "active"
     },
     "nfsservctl": {
-      "category": "unknown",
+      "category": "filesystem",
       "description": "NFS daemon operations (obsolete)",
       "number": 180,
       "status": "active"
@@ -1419,11 +1419,11 @@
       "status": "active"
     },
     "process_mrelease": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "memory",
+      "description": "Release memory of dying process",
       "first_seen_version": "6.11.0",
       "number": 448,
-      "status": "new"
+      "status": "active"
     },
     "process_vm_readv": {
       "category": "process",
@@ -1450,7 +1450,7 @@
       "status": "active"
     },
     "putpmsg": {
-      "category": "unknown",
+      "category": "unimplemented",
       "description": "Send STREAMS message (unimplemented)",
       "number": 182,
       "status": "active"
@@ -1474,7 +1474,7 @@
       "status": "active"
     },
     "query_module": {
-      "category": "unknown",
+      "category": "system",
       "description": "Query module (obsolete)",
       "number": 178,
       "status": "active"
@@ -1486,11 +1486,11 @@
       "status": "active"
     },
     "quotactl_fd": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "filesystem",
+      "description": "Manipulate disk quotas via file descriptor",
       "first_seen_version": "6.11.0",
       "number": 443,
-      "status": "new"
+      "status": "active"
     },
     "read": {
       "category": "filesystem",
@@ -1727,7 +1727,7 @@
       "status": "active"
     },
     "security": {
-      "category": "unknown",
+      "category": "unimplemented",
       "description": "Security system call (unimplemented)",
       "number": 185,
       "status": "active"
@@ -1793,11 +1793,11 @@
       "status": "active"
     },
     "set_mempolicy_home_node": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "memory",
+      "description": "Set home node for NUMA memory policy",
       "first_seen_version": "6.11.0",
       "number": 450,
-      "status": "new"
+      "status": "active"
     },
     "set_robust_list": {
       "category": "ipc",
@@ -2016,11 +2016,11 @@
       "status": "active"
     },
     "statmount": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "filesystem",
+      "description": "Get detailed mount information",
       "first_seen_version": "6.11.0",
       "number": 457,
-      "status": "new"
+      "status": "active"
     },
     "statx": {
       "category": "filesystem",
@@ -2173,7 +2173,7 @@
       "status": "active"
     },
     "tuxcall": {
-      "category": "unknown",
+      "category": "unimplemented",
       "description": "Tux system call (unimplemented)",
       "number": 184,
       "status": "active"
@@ -2215,14 +2215,14 @@
       "status": "active"
     },
     "uretprobe": {
-      "category": "unknown",
-      "description": "Unknown system call",
+      "category": "system",
+      "description": "User return probe for tracing",
       "first_seen_version": "6.11.0",
       "number": 335,
-      "status": "new"
+      "status": "active"
     },
     "uselib": {
-      "category": "unknown",
+      "category": "system",
       "description": "Load shared library (obsolete)",
       "number": 134,
       "status": "active"
@@ -2276,7 +2276,7 @@
       "status": "active"
     },
     "vserver": {
-      "category": "unknown",
+      "category": "unimplemented",
       "description": "Linux virtual server (unimplemented)",
       "number": 236,
       "status": "active"
