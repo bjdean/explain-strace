@@ -54,12 +54,23 @@ strace ls 2>&1 | explain-strace -v
 ```
 
 ### Filter by category
+Filter the output to show only specific categories of system calls:
 ```bash
+# Capture all syscalls, but only display filesystem-related ones
 strace ls 2>&1 | explain-strace --filter filesystem
+
+# Or filter by network calls
+strace wget http://example.com 2>&1 | explain-strace --filter network
+```
+
+**Note:** You can also filter at the strace level using `-e trace=...`, but this loses information about other syscalls that may be important for debugging:
+```bash
+# This only captures filesystem calls - you won't see network/memory operations
+strace -e trace=open,openat,read,write ls 2>&1 | explain-strace
 ```
 
 ### Interrupt stdin reading
-When reading from stdin, press Ctrl-C to stop reading and display the summary. For example to strace a running procesws with PID 1234:
+When reading from stdin, press Ctrl-C to stop reading and display the summary. For example to strace a running process with PID 1234:
 ```bash
 strace -p 1234 2>&1 | explain-strace
 # Press Ctrl-C to stop and see summary
@@ -69,22 +80,35 @@ strace -p 1234 2>&1 | explain-strace
 
 | Level | Flag | Output |
 |-------|------|--------|
-| 0     | (none) | System call name, description, and return value |
-| 1     | `-v` | + Link to man page documentation |
+| 0     | (none) | Original strace line + category + description + return value |
+| 1     | `-v` | All of the above + link to man page documentation |
 
 ## Output Format
 
-### Basic output
+### Basic output (verbosity 0)
 ```
-openat               - Open file relative to directory [returned: 3]
-read                 - Read from a file descriptor [returned: 832]
-close                - Close a file descriptor [returned: 0]
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+ - Category: filesystem
+ - Description: Open file relative to a directory file descriptor
+ - Returned: 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0"..., 832) = 832
+ - Category: filesystem
+ - Description: Read from a file descriptor
+ - Returned: 832
+close(3) = 0
+ - Category: filesystem
+ - Description: Close a file descriptor
+ - Returned: 0
 ```
 
-### Verbose output (-v)
+### Verbose output (verbosity 1: `-v`)
+Adds documentation links to man pages:
 ```
-openat               - Open file relative to directory [returned: 3]
-  Documentation: https://man7.org/linux/man-pages/man2/openat.2.html
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+ - Category: filesystem
+ - Description: Open file relative to a directory file descriptor
+ - Returned: 3
+ - Documentation: https://man7.org/linux/man-pages/man2/openat.2.html
 ```
 
 ### Summary
@@ -118,8 +142,16 @@ strace -p 1234 2>&1 | explain-strace -v
 # Press Ctrl-C when done
 ```
 
-### Filter specific syscalls
+### Filter by category (alternative approach)
 ```bash
+# Capture everything, filter during analysis - preserves full context
+strace ./myprogram 2>&1 | explain-strace --filter filesystem
+```
+
+### Reduce strace output size (use with caution)
+If you only want to capture specific syscalls at the strace level (useful for very high-volume traces):
+```bash
+# Only captures specific syscalls - loses context from other operations
 strace -e trace=open,openat,read,write ls 2>&1 | explain-strace
 ```
 
