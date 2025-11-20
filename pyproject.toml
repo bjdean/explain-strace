@@ -47,6 +47,7 @@ dev = [
     "pytest-cov>=4.0",   # Coverage reporting
     "black>=23.0",       # Code formatter
     "ruff>=0.1.0",       # Fast linter (replaces flake8, isort, etc.)
+    "build>=0.10.0",     # Package builder (for make build)
 ]
 
 # Project links displayed on PyPI
