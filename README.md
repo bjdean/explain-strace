@@ -117,23 +117,30 @@ At the end of processing, a summary is displayed showing all system calls and th
 ======================================================================
 SUMMARY OF SYSTEM CALLS
 ======================================================================
-System Call  Count  Description
+System Call      Count  Description
 ----------------------------------------------------------------------
-close        7      Close a file descriptor
-openat       7      Open file relative to a directory file descriptor
-read         5      Read from a file descriptor
-write        1      Write to a file descriptor
+mmap             12     Map files or devices into memory
+openat           8      Open file relative to a directory file descriptor
+close            8      Close a file descriptor
+read             6      Read from a file descriptor
+mprotect         4      Set protection on region of memory
+write            2      Write to a file descriptor
+brk              2      Change data segment size
+socket           1      Create endpoint for communication
+connect          1      Initiate connection on socket
 ----------------------------------------------------------------------
-Total: 20 calls across 4 unique system calls
+Total: 44 calls across 9 unique system calls
 
 ======================================================================
 SUMMARY BY CATEGORY
 ======================================================================
 Category      Count
 ----------------------------------------------------------------------
-filesystem    20
+memory        18
+filesystem    24
+network       2
 ----------------------------------------------------------------------
-Total: 20 calls across 1 categories
+Total: 44 calls across 3 categories
 ```
 
 ## Examples
