@@ -1,2138 +1,2308 @@
 {
   "changes": {
-    "new": [],
+    "new": [
+      "cachestat",
+      "fchmodat2",
+      "futex_requeue",
+      "futex_wait",
+      "futex_waitv",
+      "futex_wake",
+      "landlock_add_rule",
+      "landlock_create_ruleset",
+      "landlock_restrict_self",
+      "listmount",
+      "lsm_get_self_attr",
+      "lsm_list_modules",
+      "lsm_set_self_attr",
+      "map_shadow_stack",
+      "memfd_secret",
+      "mseal",
+      "process_mrelease",
+      "quotactl_fd",
+      "set_mempolicy_home_node",
+      "statmount",
+      "uretprobe"
+    ],
     "removed": [],
-    "total": 354
+    "total": 375
   },
   "metadata": {
     "architecture": "x86_64",
     "generated_date": "2025-11-20",
-    "kernel_version": "unknown",
-    "source": "Bootstrapped from hard-coded data"
+    "kernel_version": "6.11.0",
+    "previous_version": "unknown",
+    "source": "Linux kernel syscall table"
   },
   "syscalls": {
     "_sysctl": {
       "category": "system",
       "description": "Read/write system parameters (obsolete)",
-      "number": -1,
+      "number": 156,
       "status": "active"
     },
     "accept": {
       "category": "network",
       "description": "Accept connection on socket",
-      "number": -1,
+      "number": 43,
       "status": "active"
     },
     "accept4": {
       "category": "network",
       "description": "Accept connection with flags",
-      "number": -1,
+      "number": 288,
       "status": "active"
     },
     "access": {
       "category": "filesystem",
       "description": "Check user permissions for a file",
-      "number": -1,
+      "number": 21,
       "status": "active"
     },
     "acct": {
       "category": "system",
       "description": "Switch process accounting on/off",
-      "number": -1,
+      "number": 163,
       "status": "active"
     },
     "add_key": {
       "category": "security",
       "description": "Add key to kernel key management",
-      "number": -1,
+      "number": 248,
       "status": "active"
     },
     "adjtimex": {
       "category": "time",
       "description": "Tune kernel clock",
-      "number": -1,
+      "number": 159,
       "status": "active"
     },
     "afs_syscall": {
       "category": "unknown",
       "description": "AFS system call (unimplemented)",
-      "number": -1,
+      "number": 183,
       "status": "active"
     },
     "alarm": {
       "category": "time",
       "description": "Set alarm clock for delivery of signal",
-      "number": -1,
+      "number": 37,
       "status": "active"
     },
     "arch_prctl": {
       "category": "process",
       "description": "Set architecture-specific thread state",
-      "number": -1,
+      "number": 158,
       "status": "active"
     },
     "bind": {
       "category": "network",
       "description": "Bind name to socket",
-      "number": -1,
+      "number": 49,
       "status": "active"
     },
     "bpf": {
       "category": "system",
       "description": "Perform BPF command",
-      "number": -1,
+      "number": 321,
       "status": "active"
     },
     "brk": {
       "category": "memory",
       "description": "Change data segment size",
-      "number": -1,
+      "number": 12,
       "status": "active"
+    },
+    "cachestat": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 451,
+      "status": "new"
     },
     "capget": {
       "category": "security",
       "description": "Get capabilities of thread",
-      "number": -1,
+      "number": 125,
       "status": "active"
     },
     "capset": {
       "category": "security",
       "description": "Set capabilities of thread",
-      "number": -1,
+      "number": 126,
       "status": "active"
     },
     "chdir": {
       "category": "filesystem",
       "description": "Change working directory",
-      "number": -1,
+      "number": 80,
       "status": "active"
     },
     "chmod": {
       "category": "filesystem",
       "description": "Change file permissions",
-      "number": -1,
+      "number": 90,
       "status": "active"
     },
     "chown": {
       "category": "filesystem",
       "description": "Change file owner and group",
-      "number": -1,
+      "number": 92,
       "status": "active"
     },
     "chroot": {
       "category": "filesystem",
       "description": "Change root directory",
-      "number": -1,
+      "number": 161,
       "status": "active"
     },
     "clock_adjtime": {
       "category": "time",
       "description": "Adjust clock",
-      "number": -1,
+      "number": 305,
       "status": "active"
     },
     "clock_getres": {
       "category": "time",
       "description": "Get resolution of clock",
-      "number": -1,
+      "number": 229,
       "status": "active"
     },
     "clock_gettime": {
       "category": "time",
       "description": "Get time of clock",
-      "number": -1,
+      "number": 228,
       "status": "active"
     },
     "clock_nanosleep": {
       "category": "time",
       "description": "High-resolution sleep with clock",
-      "number": -1,
+      "number": 230,
       "status": "active"
     },
     "clock_settime": {
       "category": "time",
       "description": "Set time of clock",
-      "number": -1,
+      "number": 227,
       "status": "active"
     },
     "clone": {
       "category": "process",
       "description": "Create child process",
-      "number": -1,
+      "number": 56,
       "status": "active"
     },
     "clone3": {
       "category": "process",
       "description": "Create child process (extended)",
-      "number": -1,
+      "number": 435,
       "status": "active"
     },
     "close": {
       "category": "filesystem",
       "description": "Close a file descriptor",
-      "number": -1,
+      "number": 3,
       "status": "active"
     },
     "close_range": {
       "category": "filesystem",
       "description": "Close range of file descriptors",
-      "number": -1,
+      "number": 436,
       "status": "active"
     },
     "connect": {
       "category": "network",
       "description": "Initiate connection on socket",
-      "number": -1,
+      "number": 42,
       "status": "active"
     },
     "copy_file_range": {
       "category": "filesystem",
       "description": "Copy range between files",
-      "number": -1,
+      "number": 326,
       "status": "active"
     },
     "creat": {
       "category": "filesystem",
       "description": "Create file",
-      "number": -1,
+      "number": 85,
       "status": "active"
     },
     "create_module": {
       "category": "unknown",
       "description": "Create loadable module (obsolete)",
-      "number": -1,
+      "number": 174,
       "status": "active"
     },
     "delete_module": {
       "category": "system",
       "description": "Unload kernel module",
-      "number": -1,
+      "number": 176,
       "status": "active"
     },
     "dup": {
       "category": "filesystem",
       "description": "Duplicate file descriptor",
-      "number": -1,
+      "number": 32,
       "status": "active"
     },
     "dup2": {
       "category": "filesystem",
       "description": "Duplicate file descriptor to specific number",
-      "number": -1,
+      "number": 33,
       "status": "active"
     },
     "dup3": {
       "category": "filesystem",
       "description": "Duplicate file descriptor with flags",
-      "number": -1,
+      "number": 292,
       "status": "active"
     },
     "epoll_create": {
       "category": "ipc",
       "description": "Create epoll file descriptor",
-      "number": -1,
+      "number": 213,
       "status": "active"
     },
     "epoll_create1": {
       "category": "ipc",
       "description": "Create epoll descriptor with flags",
-      "number": -1,
+      "number": 291,
       "status": "active"
     },
     "epoll_ctl": {
       "category": "ipc",
       "description": "Control epoll descriptor",
-      "number": -1,
+      "number": 233,
       "status": "active"
     },
     "epoll_ctl_old": {
       "category": "unknown",
       "description": "Control epoll descriptor (old)",
-      "number": -1,
+      "number": 214,
       "status": "active"
     },
     "epoll_pwait": {
       "category": "ipc",
       "description": "Wait for epoll events with signal mask",
-      "number": -1,
+      "number": 281,
       "status": "active"
     },
     "epoll_pwait2": {
       "category": "ipc",
       "description": "Wait for epoll events with timespec",
-      "number": -1,
+      "number": 441,
       "status": "active"
     },
     "epoll_wait": {
       "category": "ipc",
       "description": "Wait for epoll events",
-      "number": -1,
+      "number": 232,
       "status": "active"
     },
     "epoll_wait_old": {
       "category": "unknown",
       "description": "Wait for epoll events (old)",
-      "number": -1,
+      "number": 215,
       "status": "active"
     },
     "eventfd": {
       "category": "ipc",
       "description": "Create file descriptor for event notification",
-      "number": -1,
+      "number": 284,
       "status": "active"
     },
     "eventfd2": {
       "category": "ipc",
       "description": "Create event file descriptor with flags",
-      "number": -1,
+      "number": 290,
       "status": "active"
     },
     "execve": {
       "category": "process",
       "description": "Execute program",
-      "number": -1,
+      "number": 59,
       "status": "active"
     },
     "execveat": {
       "category": "process",
       "description": "Execute program relative to directory",
-      "number": -1,
+      "number": 322,
       "status": "active"
     },
     "exit": {
       "category": "process",
       "description": "Terminate calling process",
-      "number": -1,
+      "number": 60,
       "status": "active"
     },
     "exit_group": {
       "category": "process",
       "description": "Terminate all threads in process",
-      "number": -1,
+      "number": 231,
       "status": "active"
     },
     "faccessat": {
       "category": "filesystem",
       "description": "Check user permissions relative to directory",
-      "number": -1,
+      "number": 269,
       "status": "active"
     },
     "faccessat2": {
       "category": "filesystem",
       "description": "Check user permissions with flags",
-      "number": -1,
+      "number": 439,
       "status": "active"
     },
     "fadvise64": {
       "category": "filesystem",
       "description": "Predeclare access pattern for file data",
-      "number": -1,
+      "number": 221,
       "status": "active"
     },
     "fallocate": {
       "category": "filesystem",
       "description": "Allocate space for file",
-      "number": -1,
+      "number": 285,
       "status": "active"
     },
     "fanotify_init": {
       "category": "filesystem",
       "description": "Initialize fanotify",
-      "number": -1,
+      "number": 300,
       "status": "active"
     },
     "fanotify_mark": {
       "category": "filesystem",
       "description": "Add/remove/flush fanotify marks",
-      "number": -1,
+      "number": 301,
       "status": "active"
     },
     "fchdir": {
       "category": "filesystem",
       "description": "Change working directory by descriptor",
-      "number": -1,
+      "number": 81,
       "status": "active"
     },
     "fchmod": {
       "category": "filesystem",
       "description": "Change file permissions by descriptor",
-      "number": -1,
+      "number": 91,
       "status": "active"
     },
     "fchmodat": {
       "category": "filesystem",
       "description": "Change permissions relative to directory",
-      "number": -1,
+      "number": 268,
       "status": "active"
+    },
+    "fchmodat2": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 452,
+      "status": "new"
     },
     "fchown": {
       "category": "filesystem",
       "description": "Change owner/group by descriptor",
-      "number": -1,
+      "number": 93,
       "status": "active"
     },
     "fchownat": {
       "category": "filesystem",
       "description": "Change owner/group relative to directory",
-      "number": -1,
+      "number": 260,
       "status": "active"
     },
     "fcntl": {
       "category": "filesystem",
       "description": "Manipulate file descriptor",
-      "number": -1,
+      "number": 72,
       "status": "active"
     },
     "fdatasync": {
       "category": "filesystem",
       "description": "Synchronize file data with storage",
-      "number": -1,
+      "number": 75,
       "status": "active"
     },
     "fgetxattr": {
       "category": "filesystem",
       "description": "Get extended attribute by descriptor",
-      "number": -1,
+      "number": 193,
       "status": "active"
     },
     "finit_module": {
       "category": "system",
       "description": "Load kernel module from file descriptor",
-      "number": -1,
+      "number": 313,
       "status": "active"
     },
     "flistxattr": {
       "category": "filesystem",
       "description": "List extended attributes by descriptor",
-      "number": -1,
+      "number": 196,
       "status": "active"
     },
     "flock": {
       "category": "filesystem",
       "description": "Apply or remove advisory lock on file",
-      "number": -1,
+      "number": 73,
       "status": "active"
     },
     "fork": {
       "category": "process",
       "description": "Create child process",
-      "number": -1,
+      "number": 57,
       "status": "active"
     },
     "fremovexattr": {
       "category": "filesystem",
       "description": "Remove extended attribute by descriptor",
-      "number": -1,
+      "number": 199,
       "status": "active"
     },
     "fsconfig": {
       "category": "filesystem",
       "description": "Configure filesystem context",
-      "number": -1,
+      "number": 431,
       "status": "active"
     },
     "fsetxattr": {
       "category": "filesystem",
       "description": "Set extended attribute by descriptor",
-      "number": -1,
+      "number": 190,
       "status": "active"
     },
     "fsmount": {
       "category": "filesystem",
       "description": "Create mount from filesystem context",
-      "number": -1,
+      "number": 432,
       "status": "active"
     },
     "fsopen": {
       "category": "filesystem",
       "description": "Open filesystem context",
-      "number": -1,
+      "number": 430,
       "status": "active"
     },
     "fspick": {
       "category": "filesystem",
       "description": "Pick existing filesystem",
-      "number": -1,
+      "number": 433,
       "status": "active"
     },
     "fstat": {
       "category": "filesystem",
       "description": "Get file status by file descriptor",
-      "number": -1,
+      "number": 5,
       "status": "active"
     },
     "fstatfs": {
       "category": "filesystem",
       "description": "Get filesystem statistics by descriptor",
-      "number": -1,
+      "number": 138,
       "status": "active"
     },
     "fsync": {
       "category": "filesystem",
       "description": "Synchronize file with storage",
-      "number": -1,
+      "number": 74,
       "status": "active"
     },
     "ftruncate": {
       "category": "filesystem",
       "description": "Truncate file by descriptor to length",
-      "number": -1,
+      "number": 77,
       "status": "active"
     },
     "futex": {
       "category": "ipc",
       "description": "Fast userspace mutex",
-      "number": -1,
+      "number": 202,
       "status": "active"
+    },
+    "futex_requeue": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 456,
+      "status": "new"
+    },
+    "futex_wait": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 455,
+      "status": "new"
+    },
+    "futex_waitv": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 449,
+      "status": "new"
+    },
+    "futex_wake": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 454,
+      "status": "new"
     },
     "futimesat": {
       "category": "filesystem",
       "description": "Change timestamps relative to directory",
-      "number": -1,
+      "number": 261,
       "status": "active"
     },
     "get_kernel_syms": {
       "category": "unknown",
       "description": "Get exported kernel symbols (obsolete)",
-      "number": -1,
+      "number": 177,
       "status": "active"
     },
     "get_mempolicy": {
       "category": "memory",
       "description": "Get NUMA memory policy",
-      "number": -1,
+      "number": 239,
       "status": "active"
     },
     "get_robust_list": {
       "category": "ipc",
       "description": "Get robust futex list",
-      "number": -1,
+      "number": 274,
       "status": "active"
     },
     "get_thread_area": {
       "category": "process",
       "description": "Get thread local storage",
-      "number": -1,
+      "number": 211,
       "status": "active"
     },
     "getcpu": {
       "category": "system",
       "description": "Get CPU and NUMA node",
-      "number": -1,
+      "number": 309,
       "status": "active"
     },
     "getcwd": {
       "category": "filesystem",
       "description": "Get current working directory",
-      "number": -1,
+      "number": 79,
       "status": "active"
     },
     "getdents": {
       "category": "filesystem",
       "description": "Get directory entries",
-      "number": -1,
+      "number": 78,
       "status": "active"
     },
     "getdents64": {
       "category": "filesystem",
       "description": "Get directory entries (64-bit)",
-      "number": -1,
+      "number": 217,
       "status": "active"
     },
     "getegid": {
       "category": "security",
       "description": "Get effective group ID",
-      "number": -1,
+      "number": 108,
       "status": "active"
     },
     "geteuid": {
       "category": "security",
       "description": "Get effective user ID",
-      "number": -1,
+      "number": 107,
       "status": "active"
     },
     "getgid": {
       "category": "security",
       "description": "Get group ID",
-      "number": -1,
+      "number": 104,
       "status": "active"
     },
     "getgroups": {
       "category": "security",
       "description": "Get supplementary group IDs",
-      "number": -1,
+      "number": 115,
       "status": "active"
     },
     "getitimer": {
       "category": "time",
       "description": "Get value of interval timer",
-      "number": -1,
+      "number": 36,
       "status": "active"
     },
     "getpeername": {
       "category": "network",
       "description": "Get name of connected peer",
-      "number": -1,
+      "number": 52,
       "status": "active"
     },
     "getpgid": {
       "category": "process",
       "description": "Get process group ID",
-      "number": -1,
+      "number": 121,
       "status": "active"
     },
     "getpgrp": {
       "category": "process",
       "description": "Get process group",
-      "number": -1,
+      "number": 111,
       "status": "active"
     },
     "getpid": {
       "category": "process",
       "description": "Get process ID",
-      "number": -1,
+      "number": 39,
       "status": "active"
     },
     "getpmsg": {
       "category": "unknown",
       "description": "Get STREAMS message (unimplemented)",
-      "number": -1,
+      "number": 181,
       "status": "active"
     },
     "getppid": {
       "category": "process",
       "description": "Get parent process ID",
-      "number": -1,
+      "number": 110,
       "status": "active"
     },
     "getpriority": {
       "category": "scheduling",
       "description": "Get program scheduling priority",
-      "number": -1,
+      "number": 140,
       "status": "active"
     },
     "getrandom": {
       "category": "system",
       "description": "Get random bytes",
-      "number": -1,
+      "number": 318,
       "status": "active"
     },
     "getresgid": {
       "category": "security",
       "description": "Get real, effective, saved group IDs",
-      "number": -1,
+      "number": 120,
       "status": "active"
     },
     "getresuid": {
       "category": "security",
       "description": "Get real, effective, saved user IDs",
-      "number": -1,
+      "number": 118,
       "status": "active"
     },
     "getrlimit": {
       "category": "system",
       "description": "Get resource limits",
-      "number": -1,
+      "number": 97,
       "status": "active"
     },
     "getrusage": {
       "category": "system",
       "description": "Get resource usage",
-      "number": -1,
+      "number": 98,
       "status": "active"
     },
     "getsid": {
       "category": "process",
       "description": "Get session ID",
-      "number": -1,
+      "number": 124,
       "status": "active"
     },
     "getsockname": {
       "category": "network",
       "description": "Get socket name",
-      "number": -1,
+      "number": 51,
       "status": "active"
     },
     "getsockopt": {
       "category": "network",
       "description": "Get socket options",
-      "number": -1,
+      "number": 55,
       "status": "active"
     },
     "gettid": {
       "category": "process",
       "description": "Get thread ID",
-      "number": -1,
+      "number": 186,
       "status": "active"
     },
     "gettimeofday": {
       "category": "time",
       "description": "Get time",
-      "number": -1,
+      "number": 96,
       "status": "active"
     },
     "getuid": {
       "category": "security",
       "description": "Get user ID",
-      "number": -1,
+      "number": 102,
       "status": "active"
     },
     "getxattr": {
       "category": "filesystem",
       "description": "Get extended attribute",
-      "number": -1,
+      "number": 191,
       "status": "active"
     },
     "init_module": {
       "category": "system",
       "description": "Load kernel module",
-      "number": -1,
+      "number": 175,
       "status": "active"
     },
     "inotify_add_watch": {
       "category": "filesystem",
       "description": "Add watch to inotify instance",
-      "number": -1,
+      "number": 254,
       "status": "active"
     },
     "inotify_init": {
       "category": "filesystem",
       "description": "Initialize inotify instance",
-      "number": -1,
+      "number": 253,
       "status": "active"
     },
     "inotify_init1": {
       "category": "filesystem",
       "description": "Initialize inotify with flags",
-      "number": -1,
+      "number": 294,
       "status": "active"
     },
     "inotify_rm_watch": {
       "category": "filesystem",
       "description": "Remove watch from inotify instance",
-      "number": -1,
+      "number": 255,
       "status": "active"
     },
     "io_cancel": {
       "category": "async_io",
       "description": "Cancel async I/O",
-      "number": -1,
+      "number": 210,
       "status": "active"
     },
     "io_destroy": {
       "category": "async_io",
       "description": "Destroy async I/O context",
-      "number": -1,
+      "number": 207,
       "status": "active"
     },
     "io_getevents": {
       "category": "async_io",
       "description": "Get async I/O events",
-      "number": -1,
+      "number": 208,
       "status": "active"
     },
     "io_pgetevents": {
       "category": "async_io",
       "description": "Get async I/O events with signal",
-      "number": -1,
+      "number": 333,
       "status": "active"
     },
     "io_setup": {
       "category": "async_io",
       "description": "Create async I/O context",
-      "number": -1,
+      "number": 206,
       "status": "active"
     },
     "io_submit": {
       "category": "async_io",
       "description": "Submit async I/O",
-      "number": -1,
+      "number": 209,
       "status": "active"
     },
     "io_uring_enter": {
       "category": "async_io",
       "description": "Submit/wait for io_uring requests",
-      "number": -1,
+      "number": 426,
       "status": "active"
     },
     "io_uring_register": {
       "category": "async_io",
       "description": "Register io_uring resources",
-      "number": -1,
+      "number": 427,
       "status": "active"
     },
     "io_uring_setup": {
       "category": "async_io",
       "description": "Setup io_uring context",
-      "number": -1,
+      "number": 425,
       "status": "active"
     },
     "ioctl": {
       "category": "device",
       "description": "Control device",
-      "number": -1,
+      "number": 16,
       "status": "active"
     },
     "ioperm": {
       "category": "device",
       "description": "Set port I/O permissions",
-      "number": -1,
+      "number": 173,
       "status": "active"
     },
     "iopl": {
       "category": "device",
       "description": "Change I/O privilege level",
-      "number": -1,
+      "number": 172,
       "status": "active"
     },
     "ioprio_get": {
       "category": "scheduling",
       "description": "Get I/O scheduling priority",
-      "number": -1,
+      "number": 252,
       "status": "active"
     },
     "ioprio_set": {
       "category": "scheduling",
       "description": "Set I/O scheduling priority",
-      "number": -1,
+      "number": 251,
       "status": "active"
     },
     "kcmp": {
       "category": "process",
       "description": "Compare kernel resources",
-      "number": -1,
+      "number": 312,
       "status": "active"
     },
     "kexec_file_load": {
       "category": "system",
       "description": "Load new kernel from file descriptor",
-      "number": -1,
+      "number": 320,
       "status": "active"
     },
     "kexec_load": {
       "category": "system",
       "description": "Load new kernel for later execution",
-      "number": -1,
+      "number": 246,
       "status": "active"
     },
     "keyctl": {
       "category": "security",
       "description": "Manipulate kernel key management",
-      "number": -1,
+      "number": 250,
       "status": "active"
     },
     "kill": {
       "category": "signal",
       "description": "Send signal to process",
-      "number": -1,
+      "number": 62,
       "status": "active"
+    },
+    "landlock_add_rule": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 445,
+      "status": "new"
+    },
+    "landlock_create_ruleset": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 444,
+      "status": "new"
+    },
+    "landlock_restrict_self": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 446,
+      "status": "new"
     },
     "lchown": {
       "category": "filesystem",
       "description": "Change owner/group (no follow symlinks)",
-      "number": -1,
+      "number": 94,
       "status": "active"
     },
     "lgetxattr": {
       "category": "filesystem",
       "description": "Get extended attribute (no follow symlinks)",
-      "number": -1,
+      "number": 192,
       "status": "active"
     },
     "link": {
       "category": "filesystem",
       "description": "Create hard link",
-      "number": -1,
+      "number": 86,
       "status": "active"
     },
     "linkat": {
       "category": "filesystem",
       "description": "Create hard link relative to directory",
-      "number": -1,
+      "number": 265,
       "status": "active"
     },
     "listen": {
       "category": "network",
       "description": "Listen for connections on socket",
-      "number": -1,
+      "number": 50,
       "status": "active"
+    },
+    "listmount": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 458,
+      "status": "new"
     },
     "listxattr": {
       "category": "filesystem",
       "description": "List extended attributes",
-      "number": -1,
+      "number": 194,
       "status": "active"
     },
     "llistxattr": {
       "category": "filesystem",
       "description": "List extended attributes (no follow symlinks)",
-      "number": -1,
+      "number": 195,
       "status": "active"
     },
     "lookup_dcookie": {
       "category": "unknown",
       "description": "Get directory entry cookie",
-      "number": -1,
+      "number": 212,
       "status": "active"
     },
     "lremovexattr": {
       "category": "filesystem",
       "description": "Remove extended attribute (no follow symlinks)",
-      "number": -1,
+      "number": 198,
       "status": "active"
     },
     "lseek": {
       "category": "filesystem",
       "description": "Reposition file offset",
-      "number": -1,
+      "number": 8,
       "status": "active"
     },
     "lsetxattr": {
       "category": "filesystem",
       "description": "Set extended attribute (no follow symlinks)",
-      "number": -1,
+      "number": 189,
       "status": "active"
+    },
+    "lsm_get_self_attr": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 459,
+      "status": "new"
+    },
+    "lsm_list_modules": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 461,
+      "status": "new"
+    },
+    "lsm_set_self_attr": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 460,
+      "status": "new"
     },
     "lstat": {
       "category": "filesystem",
       "description": "Get file status (do not follow symlinks)",
-      "number": -1,
+      "number": 6,
       "status": "active"
     },
     "madvise": {
       "category": "memory",
       "description": "Give advice about use of memory",
-      "number": -1,
+      "number": 28,
       "status": "active"
+    },
+    "map_shadow_stack": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 453,
+      "status": "new"
     },
     "mbind": {
       "category": "memory",
       "description": "Set memory policy for range",
-      "number": -1,
+      "number": 237,
       "status": "active"
     },
     "membarrier": {
       "category": "memory",
       "description": "Issue memory barriers",
-      "number": -1,
+      "number": 324,
       "status": "active"
     },
     "memfd_create": {
       "category": "memory",
       "description": "Create anonymous file",
-      "number": -1,
+      "number": 319,
       "status": "active"
+    },
+    "memfd_secret": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 447,
+      "status": "new"
     },
     "migrate_pages": {
       "category": "memory",
       "description": "Move pages between NUMA nodes",
-      "number": -1,
+      "number": 256,
       "status": "active"
     },
     "mincore": {
       "category": "memory",
       "description": "Determine whether pages are in memory",
-      "number": -1,
+      "number": 27,
       "status": "active"
     },
     "mkdir": {
       "category": "filesystem",
       "description": "Create directory",
-      "number": -1,
+      "number": 83,
       "status": "active"
     },
     "mkdirat": {
       "category": "filesystem",
       "description": "Create directory relative to descriptor",
-      "number": -1,
+      "number": 258,
       "status": "active"
     },
     "mknod": {
       "category": "filesystem",
       "description": "Create special/ordinary file",
-      "number": -1,
+      "number": 133,
       "status": "active"
     },
     "mknodat": {
       "category": "filesystem",
       "description": "Create special file relative to directory",
-      "number": -1,
+      "number": 259,
       "status": "active"
     },
     "mlock": {
       "category": "memory",
       "description": "Lock memory pages",
-      "number": -1,
+      "number": 149,
       "status": "active"
     },
     "mlock2": {
       "category": "memory",
       "description": "Lock memory with flags",
-      "number": -1,
+      "number": 325,
       "status": "active"
     },
     "mlockall": {
       "category": "memory",
       "description": "Lock all memory pages",
-      "number": -1,
+      "number": 151,
       "status": "active"
     },
     "mmap": {
       "category": "memory",
       "description": "Map files or devices into memory",
-      "number": -1,
+      "number": 9,
       "status": "active"
     },
     "modify_ldt": {
       "category": "unknown",
       "description": "Get/set thread local descriptor table",
-      "number": -1,
+      "number": 154,
       "status": "active"
     },
     "mount": {
       "category": "filesystem",
       "description": "Mount filesystem",
-      "number": -1,
+      "number": 165,
       "status": "active"
     },
     "mount_setattr": {
       "category": "filesystem",
       "description": "Change mount attributes",
-      "number": -1,
+      "number": 442,
       "status": "active"
     },
     "move_mount": {
       "category": "filesystem",
       "description": "Move mount point",
-      "number": -1,
+      "number": 429,
       "status": "active"
     },
     "move_pages": {
       "category": "memory",
       "description": "Move pages between processes/nodes",
-      "number": -1,
+      "number": 279,
       "status": "active"
     },
     "mprotect": {
       "category": "memory",
       "description": "Set protection on region of memory",
-      "number": -1,
+      "number": 10,
       "status": "active"
     },
     "mq_getsetattr": {
       "category": "ipc",
       "description": "Get/set message queue attributes",
-      "number": -1,
+      "number": 245,
       "status": "active"
     },
     "mq_notify": {
       "category": "ipc",
       "description": "Register for notification",
-      "number": -1,
+      "number": 244,
       "status": "active"
     },
     "mq_open": {
       "category": "ipc",
       "description": "Open message queue",
-      "number": -1,
+      "number": 240,
       "status": "active"
     },
     "mq_timedreceive": {
       "category": "ipc",
       "description": "Receive message with timeout",
-      "number": -1,
+      "number": 243,
       "status": "active"
     },
     "mq_timedsend": {
       "category": "ipc",
       "description": "Send message to queue with timeout",
-      "number": -1,
+      "number": 242,
       "status": "active"
     },
     "mq_unlink": {
       "category": "ipc",
       "description": "Remove message queue",
-      "number": -1,
+      "number": 241,
       "status": "active"
     },
     "mremap": {
       "category": "memory",
       "description": "Remap virtual memory",
-      "number": -1,
+      "number": 25,
       "status": "active"
+    },
+    "mseal": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 462,
+      "status": "new"
     },
     "msgctl": {
       "category": "ipc",
       "description": "Control message queue",
-      "number": -1,
+      "number": 71,
       "status": "active"
     },
     "msgget": {
       "category": "ipc",
       "description": "Get message queue identifier",
-      "number": -1,
+      "number": 68,
       "status": "active"
     },
     "msgrcv": {
       "category": "ipc",
       "description": "Receive message from queue",
-      "number": -1,
+      "number": 70,
       "status": "active"
     },
     "msgsnd": {
       "category": "ipc",
       "description": "Send message to queue",
-      "number": -1,
+      "number": 69,
       "status": "active"
     },
     "msync": {
       "category": "memory",
       "description": "Synchronize memory with physical storage",
-      "number": -1,
+      "number": 26,
       "status": "active"
     },
     "munlock": {
       "category": "memory",
       "description": "Unlock memory pages",
-      "number": -1,
+      "number": 150,
       "status": "active"
     },
     "munlockall": {
       "category": "memory",
       "description": "Unlock all memory pages",
-      "number": -1,
+      "number": 152,
       "status": "active"
     },
     "munmap": {
       "category": "memory",
       "description": "Unmap files or devices from memory",
-      "number": -1,
+      "number": 11,
       "status": "active"
     },
     "name_to_handle_at": {
       "category": "filesystem",
       "description": "Get handle for pathname",
-      "number": -1,
+      "number": 303,
       "status": "active"
     },
     "nanosleep": {
       "category": "time",
       "description": "High-resolution sleep",
-      "number": -1,
+      "number": 35,
       "status": "active"
     },
     "newfstatat": {
       "category": "filesystem",
       "description": "Get file status relative to directory file descriptor",
-      "number": -1,
+      "number": 262,
       "status": "active"
     },
     "nfsservctl": {
       "category": "unknown",
       "description": "NFS daemon operations (obsolete)",
-      "number": -1,
+      "number": 180,
       "status": "active"
     },
     "open": {
       "category": "filesystem",
       "description": "Open a file or device",
-      "number": -1,
+      "number": 2,
       "status": "active"
     },
     "open_by_handle_at": {
       "category": "filesystem",
       "description": "Open file via handle",
-      "number": -1,
+      "number": 304,
       "status": "active"
     },
     "open_tree": {
       "category": "filesystem",
       "description": "Open filesystem tree",
-      "number": -1,
+      "number": 428,
       "status": "active"
     },
     "openat": {
       "category": "filesystem",
       "description": "Open a file relative to a directory file descriptor",
-      "number": -1,
+      "number": 257,
       "status": "active"
     },
     "openat2": {
       "category": "filesystem",
       "description": "Open file with extended options",
-      "number": -1,
+      "number": 437,
       "status": "active"
     },
     "pause": {
       "category": "signal",
       "description": "Wait for signal",
-      "number": -1,
+      "number": 34,
       "status": "active"
     },
     "perf_event_open": {
       "category": "system",
       "description": "Open performance monitoring event",
-      "number": -1,
+      "number": 298,
       "status": "active"
     },
     "personality": {
       "category": "process",
       "description": "Set process execution domain",
-      "number": -1,
+      "number": 135,
       "status": "active"
     },
     "pidfd_getfd": {
       "category": "process",
       "description": "Get file descriptor from another process",
-      "number": -1,
+      "number": 438,
       "status": "active"
     },
     "pidfd_open": {
       "category": "process",
       "description": "Open process as file descriptor",
-      "number": -1,
+      "number": 434,
       "status": "active"
     },
     "pidfd_send_signal": {
       "category": "process",
       "description": "Send signal to process via file descriptor",
-      "number": -1,
+      "number": 424,
       "status": "active"
     },
     "pipe": {
       "category": "ipc",
       "description": "Create pipe",
-      "number": -1,
+      "number": 22,
       "status": "active"
     },
     "pipe2": {
       "category": "ipc",
       "description": "Create pipe with flags",
-      "number": -1,
+      "number": 293,
       "status": "active"
     },
     "pivot_root": {
       "category": "filesystem",
       "description": "Change root filesystem",
-      "number": -1,
+      "number": 155,
       "status": "active"
     },
     "pkey_alloc": {
       "category": "memory",
       "description": "Allocate memory protection key",
-      "number": -1,
+      "number": 330,
       "status": "active"
     },
     "pkey_free": {
       "category": "memory",
       "description": "Free memory protection key",
-      "number": -1,
+      "number": 331,
       "status": "active"
     },
     "pkey_mprotect": {
       "category": "memory",
       "description": "Set protection with memory protection key",
-      "number": -1,
+      "number": 329,
       "status": "active"
     },
     "poll": {
       "category": "ipc",
       "description": "Wait for events on file descriptors",
-      "number": -1,
+      "number": 7,
       "status": "active"
     },
     "ppoll": {
       "category": "ipc",
       "description": "Wait for events with signal mask",
-      "number": -1,
+      "number": 271,
       "status": "active"
     },
     "prctl": {
       "category": "process",
       "description": "Operations on a process",
-      "number": -1,
+      "number": 157,
       "status": "active"
     },
     "pread64": {
       "category": "filesystem",
       "description": "Read from file descriptor at offset",
-      "number": -1,
+      "number": 17,
       "status": "active"
     },
     "preadv": {
       "category": "filesystem",
       "description": "Read into multiple buffers at offset",
-      "number": -1,
+      "number": 295,
       "status": "active"
     },
     "preadv2": {
       "category": "filesystem",
       "description": "Read into multiple buffers with flags",
-      "number": -1,
+      "number": 327,
       "status": "active"
     },
     "prlimit64": {
       "category": "system",
       "description": "Get/set resource limits",
-      "number": -1,
+      "number": 302,
       "status": "active"
     },
     "process_madvise": {
       "category": "memory",
       "description": "Give memory advice for another process",
-      "number": -1,
+      "number": 440,
       "status": "active"
+    },
+    "process_mrelease": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 448,
+      "status": "new"
     },
     "process_vm_readv": {
       "category": "process",
       "description": "Read from another process memory",
-      "number": -1,
+      "number": 310,
       "status": "active"
     },
     "process_vm_writev": {
       "category": "process",
       "description": "Write to another process memory",
-      "number": -1,
+      "number": 311,
       "status": "active"
     },
     "pselect6": {
       "category": "ipc",
       "description": "Synchronous I/O multiplexing with signal mask",
-      "number": -1,
+      "number": 270,
       "status": "active"
     },
     "ptrace": {
       "category": "process",
       "description": "Process trace",
-      "number": -1,
+      "number": 101,
       "status": "active"
     },
     "putpmsg": {
       "category": "unknown",
       "description": "Send STREAMS message (unimplemented)",
-      "number": -1,
+      "number": 182,
       "status": "active"
     },
     "pwrite64": {
       "category": "filesystem",
       "description": "Write to file descriptor at offset",
-      "number": -1,
+      "number": 18,
       "status": "active"
     },
     "pwritev": {
       "category": "filesystem",
       "description": "Write from multiple buffers at offset",
-      "number": -1,
+      "number": 296,
       "status": "active"
     },
     "pwritev2": {
       "category": "filesystem",
       "description": "Write from multiple buffers with flags",
-      "number": -1,
+      "number": 328,
       "status": "active"
     },
     "query_module": {
       "category": "unknown",
       "description": "Query module (obsolete)",
-      "number": -1,
+      "number": 178,
       "status": "active"
     },
     "quotactl": {
       "category": "filesystem",
       "description": "Manipulate disk quotas",
-      "number": -1,
+      "number": 179,
       "status": "active"
+    },
+    "quotactl_fd": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 443,
+      "status": "new"
     },
     "read": {
       "category": "filesystem",
       "description": "Read from a file descriptor",
-      "number": -1,
+      "number": 0,
       "status": "active"
     },
     "readahead": {
       "category": "filesystem",
       "description": "Initiate file readahead",
-      "number": -1,
+      "number": 187,
       "status": "active"
     },
     "readlink": {
       "category": "filesystem",
       "description": "Read value of symbolic link",
-      "number": -1,
+      "number": 89,
       "status": "active"
     },
     "readlinkat": {
       "category": "filesystem",
       "description": "Read symbolic link relative to directory",
-      "number": -1,
+      "number": 267,
       "status": "active"
     },
     "readv": {
       "category": "filesystem",
       "description": "Read data into multiple buffers",
-      "number": -1,
+      "number": 19,
       "status": "active"
     },
     "reboot": {
       "category": "system",
       "description": "Reboot or enable/disable Ctrl-Alt-Del",
-      "number": -1,
+      "number": 169,
       "status": "active"
     },
     "recvfrom": {
       "category": "network",
       "description": "Receive message from socket",
-      "number": -1,
+      "number": 45,
       "status": "active"
     },
     "recvmmsg": {
       "category": "network",
       "description": "Receive multiple messages",
-      "number": -1,
+      "number": 299,
       "status": "active"
     },
     "recvmsg": {
       "category": "network",
       "description": "Receive message from socket (complex)",
-      "number": -1,
+      "number": 47,
       "status": "active"
     },
     "remap_file_pages": {
       "category": "memory",
       "description": "Create nonlinear file mapping",
-      "number": -1,
+      "number": 216,
       "status": "active"
     },
     "removexattr": {
       "category": "filesystem",
       "description": "Remove extended attribute",
-      "number": -1,
+      "number": 197,
       "status": "active"
     },
     "rename": {
       "category": "filesystem",
       "description": "Rename file",
-      "number": -1,
+      "number": 82,
       "status": "active"
     },
     "renameat": {
       "category": "filesystem",
       "description": "Rename file relative to directory",
-      "number": -1,
+      "number": 264,
       "status": "active"
     },
     "renameat2": {
       "category": "filesystem",
       "description": "Rename file with flags",
-      "number": -1,
+      "number": 316,
       "status": "active"
     },
     "request_key": {
       "category": "security",
       "description": "Request key from kernel",
-      "number": -1,
+      "number": 249,
       "status": "active"
     },
     "restart_syscall": {
       "category": "system",
       "description": "Restart system call after interruption",
-      "number": -1,
+      "number": 219,
       "status": "active"
     },
     "rmdir": {
       "category": "filesystem",
       "description": "Remove directory",
-      "number": -1,
+      "number": 84,
       "status": "active"
     },
     "rseq": {
       "category": "process",
       "description": "Register restartable sequence",
-      "number": -1,
+      "number": 334,
       "status": "active"
     },
     "rt_sigaction": {
       "category": "signal",
       "description": "Examine/change signal action",
-      "number": -1,
+      "number": 13,
       "status": "active"
     },
     "rt_sigpending": {
       "category": "signal",
       "description": "Examine pending signals",
-      "number": -1,
+      "number": 127,
       "status": "active"
     },
     "rt_sigprocmask": {
       "category": "signal",
       "description": "Examine/change blocked signals",
-      "number": -1,
+      "number": 14,
       "status": "active"
     },
     "rt_sigqueueinfo": {
       "category": "signal",
       "description": "Queue signal and data",
-      "number": -1,
+      "number": 129,
       "status": "active"
     },
     "rt_sigreturn": {
       "category": "signal",
       "description": "Return from signal handler",
-      "number": -1,
+      "number": 15,
       "status": "active"
     },
     "rt_sigsuspend": {
       "category": "signal",
       "description": "Wait for signal",
-      "number": -1,
+      "number": 130,
       "status": "active"
     },
     "rt_sigtimedwait": {
       "category": "signal",
       "description": "Wait for queued signals",
-      "number": -1,
+      "number": 128,
       "status": "active"
     },
     "rt_tgsigqueueinfo": {
       "category": "signal",
       "description": "Queue signal to thread group",
-      "number": -1,
+      "number": 297,
       "status": "active"
     },
     "sched_get_priority_max": {
       "category": "scheduling",
       "description": "Get max static priority",
-      "number": -1,
+      "number": 146,
       "status": "active"
     },
     "sched_get_priority_min": {
       "category": "scheduling",
       "description": "Get min static priority",
-      "number": -1,
+      "number": 147,
       "status": "active"
     },
     "sched_getaffinity": {
       "category": "scheduling",
       "description": "Get CPU affinity mask",
-      "number": -1,
+      "number": 204,
       "status": "active"
     },
     "sched_getattr": {
       "category": "scheduling",
       "description": "Get scheduling attributes",
-      "number": -1,
+      "number": 315,
       "status": "active"
     },
     "sched_getparam": {
       "category": "scheduling",
       "description": "Get scheduling parameters",
-      "number": -1,
+      "number": 143,
       "status": "active"
     },
     "sched_getscheduler": {
       "category": "scheduling",
       "description": "Get scheduling algorithm",
-      "number": -1,
+      "number": 145,
       "status": "active"
     },
     "sched_rr_get_interval": {
       "category": "scheduling",
       "description": "Get SCHED_RR interval",
-      "number": -1,
+      "number": 148,
       "status": "active"
     },
     "sched_setaffinity": {
       "category": "scheduling",
       "description": "Set CPU affinity mask",
-      "number": -1,
+      "number": 203,
       "status": "active"
     },
     "sched_setattr": {
       "category": "scheduling",
       "description": "Set scheduling attributes",
-      "number": -1,
+      "number": 314,
       "status": "active"
     },
     "sched_setparam": {
       "category": "scheduling",
       "description": "Set scheduling parameters",
-      "number": -1,
+      "number": 142,
       "status": "active"
     },
     "sched_setscheduler": {
       "category": "scheduling",
       "description": "Set scheduling algorithm/parameters",
-      "number": -1,
+      "number": 144,
       "status": "active"
     },
     "sched_yield": {
       "category": "scheduling",
       "description": "Yield the processor",
-      "number": -1,
+      "number": 24,
       "status": "active"
     },
     "seccomp": {
       "category": "security",
       "description": "Set secure computing mode",
-      "number": -1,
+      "number": 317,
       "status": "active"
     },
     "security": {
       "category": "unknown",
       "description": "Security system call (unimplemented)",
-      "number": -1,
+      "number": 185,
       "status": "active"
     },
     "select": {
       "category": "ipc",
       "description": "Synchronous I/O multiplexing",
-      "number": -1,
+      "number": 23,
       "status": "active"
     },
     "semctl": {
       "category": "ipc",
       "description": "Control semaphore set",
-      "number": -1,
+      "number": 66,
       "status": "active"
     },
     "semget": {
       "category": "ipc",
       "description": "Get semaphore set identifier",
-      "number": -1,
+      "number": 64,
       "status": "active"
     },
     "semop": {
       "category": "ipc",
       "description": "Semaphore operations",
-      "number": -1,
+      "number": 65,
       "status": "active"
     },
     "semtimedop": {
       "category": "ipc",
       "description": "Semaphore operations with timeout",
-      "number": -1,
+      "number": 220,
       "status": "active"
     },
     "sendfile": {
       "category": "filesystem",
       "description": "Transfer data between file descriptors",
-      "number": -1,
+      "number": 40,
       "status": "active"
     },
     "sendmmsg": {
       "category": "network",
       "description": "Send multiple messages",
-      "number": -1,
+      "number": 307,
       "status": "active"
     },
     "sendmsg": {
       "category": "network",
       "description": "Send message on socket (complex)",
-      "number": -1,
+      "number": 46,
       "status": "active"
     },
     "sendto": {
       "category": "network",
       "description": "Send message on socket",
-      "number": -1,
+      "number": 44,
       "status": "active"
     },
     "set_mempolicy": {
       "category": "memory",
       "description": "Set default NUMA memory policy",
-      "number": -1,
+      "number": 238,
       "status": "active"
+    },
+    "set_mempolicy_home_node": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 450,
+      "status": "new"
     },
     "set_robust_list": {
       "category": "ipc",
       "description": "Set robust futex list",
-      "number": -1,
+      "number": 273,
       "status": "active"
     },
     "set_thread_area": {
       "category": "process",
       "description": "Set thread local storage",
-      "number": -1,
+      "number": 205,
       "status": "active"
     },
     "set_tid_address": {
       "category": "process",
       "description": "Set pointer to thread ID",
-      "number": -1,
+      "number": 218,
       "status": "active"
     },
     "setdomainname": {
       "category": "system",
       "description": "Set NIS domain name",
-      "number": -1,
+      "number": 171,
       "status": "active"
     },
     "setfsgid": {
       "category": "security",
       "description": "Set group ID for filesystem checks",
-      "number": -1,
+      "number": 123,
       "status": "active"
     },
     "setfsuid": {
       "category": "security",
       "description": "Set user ID for filesystem checks",
-      "number": -1,
+      "number": 122,
       "status": "active"
     },
     "setgid": {
       "category": "security",
       "description": "Set group ID",
-      "number": -1,
+      "number": 106,
       "status": "active"
     },
     "setgroups": {
       "category": "security",
       "description": "Set supplementary group IDs",
-      "number": -1,
+      "number": 116,
       "status": "active"
     },
     "sethostname": {
       "category": "system",
       "description": "Set hostname",
-      "number": -1,
+      "number": 170,
       "status": "active"
     },
     "setitimer": {
       "category": "time",
       "description": "Set value of interval timer",
-      "number": -1,
+      "number": 38,
       "status": "active"
     },
     "setns": {
       "category": "process",
       "description": "Join namespace",
-      "number": -1,
+      "number": 308,
       "status": "active"
     },
     "setpgid": {
       "category": "process",
       "description": "Set process group ID",
-      "number": -1,
+      "number": 109,
       "status": "active"
     },
     "setpriority": {
       "category": "scheduling",
       "description": "Set program scheduling priority",
-      "number": -1,
+      "number": 141,
       "status": "active"
     },
     "setregid": {
       "category": "security",
       "description": "Set real and effective group IDs",
-      "number": -1,
+      "number": 114,
       "status": "active"
     },
     "setresgid": {
       "category": "security",
       "description": "Set real, effective, saved group IDs",
-      "number": -1,
+      "number": 119,
       "status": "active"
     },
     "setresuid": {
       "category": "security",
       "description": "Set real, effective, saved user IDs",
-      "number": -1,
+      "number": 117,
       "status": "active"
     },
     "setreuid": {
       "category": "security",
       "description": "Set real and effective user IDs",
-      "number": -1,
+      "number": 113,
       "status": "active"
     },
     "setrlimit": {
       "category": "system",
       "description": "Set resource limits",
-      "number": -1,
+      "number": 160,
       "status": "active"
     },
     "setsid": {
       "category": "process",
       "description": "Create session and set process group ID",
-      "number": -1,
+      "number": 112,
       "status": "active"
     },
     "setsockopt": {
       "category": "network",
       "description": "Set socket options",
-      "number": -1,
+      "number": 54,
       "status": "active"
     },
     "settimeofday": {
       "category": "time",
       "description": "Set time",
-      "number": -1,
+      "number": 164,
       "status": "active"
     },
     "setuid": {
       "category": "security",
       "description": "Set user ID",
-      "number": -1,
+      "number": 105,
       "status": "active"
     },
     "setxattr": {
       "category": "filesystem",
       "description": "Set extended attribute",
-      "number": -1,
+      "number": 188,
       "status": "active"
     },
     "shmat": {
       "category": "ipc",
       "description": "Attach shared memory segment",
-      "number": -1,
+      "number": 30,
       "status": "active"
     },
     "shmctl": {
       "category": "ipc",
       "description": "Control shared memory segment",
-      "number": -1,
+      "number": 31,
       "status": "active"
     },
     "shmdt": {
       "category": "ipc",
       "description": "Detach shared memory segment",
-      "number": -1,
+      "number": 67,
       "status": "active"
     },
     "shmget": {
       "category": "ipc",
       "description": "Allocate shared memory segment",
-      "number": -1,
+      "number": 29,
       "status": "active"
     },
     "shutdown": {
       "category": "network",
       "description": "Shut down part of full-duplex connection",
-      "number": -1,
+      "number": 48,
       "status": "active"
     },
     "sigaltstack": {
       "category": "signal",
       "description": "Set/get signal stack context",
-      "number": -1,
+      "number": 131,
       "status": "active"
     },
     "signalfd": {
       "category": "signal",
       "description": "Create file descriptor for signals",
-      "number": -1,
+      "number": 282,
       "status": "active"
     },
     "signalfd4": {
       "category": "signal",
       "description": "Create signal file descriptor with flags",
-      "number": -1,
+      "number": 289,
       "status": "active"
     },
     "socket": {
       "category": "network",
       "description": "Create endpoint for communication",
-      "number": -1,
+      "number": 41,
       "status": "active"
     },
     "socketpair": {
       "category": "network",
       "description": "Create pair of connected sockets",
-      "number": -1,
+      "number": 53,
       "status": "active"
     },
     "splice": {
       "category": "filesystem",
       "description": "Splice data to/from pipe",
-      "number": -1,
+      "number": 275,
       "status": "active"
     },
     "stat": {
       "category": "filesystem",
       "description": "Get file status",
-      "number": -1,
+      "number": 4,
       "status": "active"
     },
     "statfs": {
       "category": "filesystem",
       "description": "Get filesystem statistics",
-      "number": -1,
+      "number": 137,
       "status": "active"
+    },
+    "statmount": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 457,
+      "status": "new"
     },
     "statx": {
       "category": "filesystem",
       "description": "Get extended file status",
-      "number": -1,
+      "number": 332,
       "status": "active"
     },
     "swapoff": {
       "category": "filesystem",
       "description": "Stop swapping to file/device",
-      "number": -1,
+      "number": 168,
       "status": "active"
     },
     "swapon": {
       "category": "filesystem",
       "description": "Start swapping to file/device",
-      "number": -1,
+      "number": 167,
       "status": "active"
     },
     "symlink": {
       "category": "filesystem",
       "description": "Create symbolic link",
-      "number": -1,
+      "number": 88,
       "status": "active"
     },
     "symlinkat": {
       "category": "filesystem",
       "description": "Create symbolic link relative to directory",
-      "number": -1,
+      "number": 266,
       "status": "active"
     },
     "sync": {
       "category": "filesystem",
       "description": "Commit filesystem caches to disk",
-      "number": -1,
+      "number": 162,
       "status": "active"
     },
     "sync_file_range": {
       "category": "filesystem",
       "description": "Sync file region with disk",
-      "number": -1,
+      "number": 277,
       "status": "active"
     },
     "syncfs": {
       "category": "filesystem",
       "description": "Sync filesystem containing file",
-      "number": -1,
+      "number": 306,
       "status": "active"
     },
     "sysfs": {
       "category": "system",
       "description": "Get filesystem type information",
-      "number": -1,
+      "number": 139,
       "status": "active"
     },
     "sysinfo": {
       "category": "system",
       "description": "Get system information",
-      "number": -1,
+      "number": 99,
       "status": "active"
     },
     "syslog": {
       "category": "system",
       "description": "Read/clear kernel message ring buffer",
-      "number": -1,
+      "number": 103,
       "status": "active"
     },
     "tee": {
       "category": "filesystem",
       "description": "Duplicate pipe content",
-      "number": -1,
+      "number": 276,
       "status": "active"
     },
     "tgkill": {
       "category": "signal",
       "description": "Send signal to thread in thread group",
-      "number": -1,
+      "number": 234,
       "status": "active"
     },
     "time": {
       "category": "time",
       "description": "Get time in seconds",
-      "number": -1,
+      "number": 201,
       "status": "active"
     },
     "timer_create": {
       "category": "time",
       "description": "Create POSIX per-process timer",
-      "number": -1,
+      "number": 222,
       "status": "active"
     },
     "timer_delete": {
       "category": "time",
       "description": "Delete POSIX timer",
-      "number": -1,
+      "number": 226,
       "status": "active"
     },
     "timer_getoverrun": {
       "category": "time",
       "description": "Get overrun count for POSIX timer",
-      "number": -1,
+      "number": 225,
       "status": "active"
     },
     "timer_gettime": {
       "category": "time",
       "description": "Fetch state of POSIX timer",
-      "number": -1,
+      "number": 224,
       "status": "active"
     },
     "timer_settime": {
       "category": "time",
       "description": "Arm/disarm POSIX timer",
-      "number": -1,
+      "number": 223,
       "status": "active"
     },
     "timerfd_create": {
       "category": "time",
       "description": "Create timer as file descriptor",
-      "number": -1,
+      "number": 283,
       "status": "active"
     },
     "timerfd_gettime": {
       "category": "time",
       "description": "Get timer via file descriptor",
-      "number": -1,
+      "number": 287,
       "status": "active"
     },
     "timerfd_settime": {
       "category": "time",
       "description": "Set timer via file descriptor",
-      "number": -1,
+      "number": 286,
       "status": "active"
     },
     "times": {
       "category": "time",
       "description": "Get process times",
-      "number": -1,
+      "number": 100,
       "status": "active"
     },
     "tkill": {
       "category": "signal",
       "description": "Send signal to thread",
-      "number": -1,
+      "number": 200,
       "status": "active"
     },
     "truncate": {
       "category": "filesystem",
       "description": "Truncate file to specified length",
-      "number": -1,
+      "number": 76,
       "status": "active"
     },
     "tuxcall": {
       "category": "unknown",
       "description": "Tux system call (unimplemented)",
-      "number": -1,
+      "number": 184,
       "status": "active"
     },
     "umask": {
       "category": "filesystem",
       "description": "Set file creation mask",
-      "number": -1,
+      "number": 95,
       "status": "active"
     },
     "umount2": {
       "category": "filesystem",
       "description": "Unmount filesystem",
-      "number": -1,
+      "number": 166,
       "status": "active"
     },
     "uname": {
       "category": "system",
       "description": "Get name and information about kernel",
-      "number": -1,
+      "number": 63,
       "status": "active"
     },
     "unlink": {
       "category": "filesystem",
       "description": "Remove file",
-      "number": -1,
+      "number": 87,
       "status": "active"
     },
     "unlinkat": {
       "category": "filesystem",
       "description": "Remove file relative to directory",
-      "number": -1,
+      "number": 263,
       "status": "active"
     },
     "unshare": {
       "category": "process",
       "description": "Disassociate parts of process context",
-      "number": -1,
+      "number": 272,
       "status": "active"
+    },
+    "uretprobe": {
+      "category": "unknown",
+      "description": "Unknown system call",
+      "first_seen_version": "6.11.0",
+      "number": 335,
+      "status": "new"
     },
     "uselib": {
       "category": "unknown",
       "description": "Load shared library (obsolete)",
-      "number": -1,
+      "number": 134,
       "status": "active"
     },
     "userfaultfd": {
       "category": "memory",
       "description": "Create userfaultfd object",
-      "number": -1,
+      "number": 323,
       "status": "active"
     },
     "ustat": {
       "category": "filesystem",
       "description": "Get filesystem statistics (obsolete)",
-      "number": -1,
+      "number": 136,
       "status": "active"
     },
     "utime": {
       "category": "filesystem",
       "description": "Change file timestamps",
-      "number": -1,
+      "number": 132,
       "status": "active"
     },
     "utimensat": {
       "category": "filesystem",
       "description": "Change timestamps with nanosecond precision",
-      "number": -1,
+      "number": 280,
       "status": "active"
     },
     "utimes": {
       "category": "filesystem",
       "description": "Change file timestamps",
-      "number": -1,
+      "number": 235,
       "status": "active"
     },
     "vfork": {
       "category": "process",
       "description": "Create child process (shares memory)",
-      "number": -1,
+      "number": 58,
       "status": "active"
     },
     "vhangup": {
       "category": "system",
       "description": "Simulate hangup on terminal",
-      "number": -1,
+      "number": 153,
       "status": "active"
     },
     "vmsplice": {
       "category": "filesystem",
       "description": "Splice user pages into pipe",
-      "number": -1,
+      "number": 278,
       "status": "active"
     },
     "vserver": {
       "category": "unknown",
       "description": "Linux virtual server (unimplemented)",
-      "number": -1,
+      "number": 236,
       "status": "active"
     },
     "wait4": {
       "category": "process",
       "description": "Wait for process to change state",
-      "number": -1,
+      "number": 61,
       "status": "active"
     },
     "waitid": {
       "category": "process",
       "description": "Wait for process to change state (extended)",
-      "number": -1,
+      "number": 247,
       "status": "active"
     },
     "write": {
       "category": "filesystem",
       "description": "Write to a file descriptor",
-      "number": -1,
+      "number": 1,
       "status": "active"
     },
     "writev": {
       "category": "filesystem",
       "description": "Write data from multiple buffers",
-      "number": -1,
+      "number": 20,
       "status": "active"
     }
   }
