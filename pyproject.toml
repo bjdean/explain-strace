@@ -1,7 +1,7 @@
 # Build system configuration
 # Uses setuptools as the build backend (most common and well-supported)
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
+requires = ["setuptools>=77.0.3", "wheel"]
 build-backend = "setuptools.build_meta"
 
 # Project metadata
