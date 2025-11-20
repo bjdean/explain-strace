@@ -4,11 +4,10 @@ Parse and explain strace output with human-readable descriptions.
 
 ## Features
 
-- Read strace output from file or stdin
 - One-line description for each system call
-- Multiple verbosity levels for detailed information
+- Summarise the details of the call
 - Summary statistics of all system calls
-- Graceful Ctrl-C handling when reading from stdin
+- Reads strace output from file or stdin
 - Filter by system call categories (filesystem, network, memory, etc.)
 
 ## Installation
